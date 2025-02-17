@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-iranYekanFont)", ...fontFamily.sans],
+        sans: ["var(--font-iranYekanFont)", ...fontFamily.sans, 'Inter'],
       },
       colors: {
         background: 'hsl(var(--background))',
