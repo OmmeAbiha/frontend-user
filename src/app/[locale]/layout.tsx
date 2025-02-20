@@ -13,7 +13,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params, children }: Props) {
+export async function generateMetadata({ params }: Props) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
 
@@ -30,6 +30,7 @@ interface ProductPageProps {
 export default async function LocaleLayout({ children, params }: ProductPageProps) {
   const { locale } = await params
   // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
