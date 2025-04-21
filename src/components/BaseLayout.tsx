@@ -32,7 +32,7 @@ export default async function BaseLayout({ children, locale }: Props) {
     <html
       className="h-full"
       lang={locale}
-      dir={locale === 'fa' ? 'rtl' : 'ltr'}
+      dir={locale === 'fa' || locale === 'ar' ? 'rtl' : 'ltr'}
       suppressHydrationWarning
     >
       <head>

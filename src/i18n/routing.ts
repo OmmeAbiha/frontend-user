@@ -2,14 +2,15 @@ import { createNavigation } from 'next-intl/navigation';
 import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
-  locales: ['fa', 'en'],
+  locales: ['fa', 'en', 'ar'],
   defaultLocale: 'fa',
   // localeDetection: false,
   pathnames: {
     '/': '/',
     '/pathnames': {
       fa: '/pathnames',
-      en: '/pathnames'
+      en: '/pathnames',
+      ar: '/pathnames'
     }
   }
 });

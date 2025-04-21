@@ -22,16 +22,10 @@ dotenv.config({ path: `.env.${envName}` });
 console.info(`=> ENV: ${envName}`);
 
 const withNextIntl = require("next-intl/plugin")();
-const withPWA = require("next-pwa")({
-  dest: "public",
-  register: true,
-  skipWaiting: true,
-  // disable: process.env.NODE_ENV === "development",
-});
+
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  swcMinify: true
 };
 
-export default withNextIntl(withPWA(nextConfig));
+export default withNextIntl(nextConfig);

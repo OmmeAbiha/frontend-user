@@ -40,7 +40,7 @@ export default function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     '/',
-    '/(en|fa)/:path*',
+    '/(en|fa|ar)/:path*',
     '/((?!_next|_vercel|.*\\..*).*)'
   ]
 };
