@@ -6,13 +6,13 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const t = await getTranslations({ locale, namespace: 'Manifest' });
 
   return {
-    name: t('name') || "ommeabiha.info",
+    name: "تربیت فکرها و تثبیت باورها",
     short_name: "Omme Abiha",
-    // description: t('description'),
+    description: ' هدف از تشکیل این مجموعه ، فراهم نمودن بستری برای تحصیل علوم واجب دینی(اعتقادات ، قران ، احکام) برای برادران و خواهران می باشد. این مجموعه در طول هفته فعالیت های متنوعی در راستای اعتلای پرچم تشیع انجام میدهد و به صورت کاملا مردمی اداره شده و کلیه خدمات خود را به صورت کاملا رایگان در اختیار عموم مردم قرار می دهد. کلیه فعالیت ها متناسب با طبع و نظر مخاطب جوان انجام میشود و حول محور این شعار (تربیت فکرها و تثبیت باورها) انجام می پذیرد.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#ffffff',
+    background_color: '#f4b41b',
+    theme_color: '#f4b41b',
     icons: [
       {
         src: '/common/logo/web-app-manifest-192x192.png',
@@ -28,12 +28,12 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
       },
       {
         src: '/common/logo/favicon.svg',
-        sizes: 'any',
+        sizes: '32x32',
         type: 'image/svg+xml',
       },
       {
         src: '/common/logo/favicon.ico',
-        sizes: 'any',
+        sizes: '32x32',
         type: 'image/x-icon',
       },
       {
@@ -41,23 +41,6 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         sizes: '180x180',
         type: 'image/png',
       },
-      {
-        src: '/common/logo/favicon-16x16.png',
-        sizes: '16x16',
-        type: 'image/svg+xml',
-      },
-      {
-        src: '/common/logo/favicon-32x32.png',
-        sizes: '32x32',
-        type: 'image/x-icon',
-      },
-      {
-        src: '/common/logo/favicon-96x96.png',
-        sizes: '96x96',
-        type: 'image/x-icon',
-      },
     ],
-    prefer_related_applications: false,
-    related_applications: [],
   };
 }

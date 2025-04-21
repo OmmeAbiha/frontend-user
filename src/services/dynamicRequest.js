@@ -39,9 +39,10 @@ const handleRequestError = (error) => {
             Cookies.remove('TOKEN', { domain: `.${process.env.NEXT_PUBLIC_REPORT_FRONT_DOMAIN}`, path: '/' });
             break;
         case 400:
-            response.data.message && toastHandler('err', response.data.message);
+            if (response.data.message) {
+                toastHandler('err', response.data.message);
+            }
             break;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         default:
             return null;
     }

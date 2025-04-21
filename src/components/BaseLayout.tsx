@@ -10,15 +10,16 @@ type Props = {
 };
 
 export const metadata: Metadata = {
+  // metadataBase: new URL(dafaultUrl),
   title: "Omme Abiha",
   description: "توضیحات اپلیکیشن",
   icons: {
-    icon: [
-      { url: "/common/logo/favicon.ico" },
-      { url: "/common/logo/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/common/logo/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
-      { url: "/common/logo/favicon.svg", type: "image/svg+xml" },
-    ],
+    // icon: [
+    //   { url: "/common/logo/favicon.ico" },
+    //   { url: "/common/logo/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
+    //   { url: "/common/logo/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
+    //   { url: "/common/logo/favicon.svg", type: "image/svg+xml" },
+    // ],
     apple: "/common/logo/apple-touch-icon.png",
   },
   manifest: "/manifest.webmanifest",
