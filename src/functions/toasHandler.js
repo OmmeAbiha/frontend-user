@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import CustomToast from "@/components/customToast";
+import CustomToast from "@/src/components/CustomToast";
 
 const toastHandler = (status, title, duration = 5000) => {
   const toastId = toast.custom(() =>

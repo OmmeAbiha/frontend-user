@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
-import PageLayout from '@/components/PageLayout';
 
 type Props = {
   error: Error;
@@ -17,21 +16,20 @@ export default function Error({ error, reset }: Props) {
   }, [error]);
 
   return (
-    <PageLayout title={t('title')}>
-      <div>
-        {t.rich('description', {
-          p: (chunks) => <p className="mt-4">{chunks}</p>,
-          retry: (chunks) => (
-            <button
-              className="text-white underline underline-offset-2"
-              onClick={reset}
-              type="button"
-            >
-              {chunks}
-            </button>
-          )
-        })}
-      </div>
-    </PageLayout>
+    <div>
+      {t.rich('description', {
+        p: (chunks) => <p className="mt-4">{chunks}</p>,
+        retry: (chunks) => (
+          <button
+            className="text-white underline underline-offset-2"
+            onClick={reset}
+            type="button"
+          >
+            {chunks}
+          </button>
+        )
+      })}
+      Error Page
+    </div>
   );
 }

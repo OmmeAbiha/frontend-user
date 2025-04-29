@@ -1,6 +1,5 @@
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
-import { loadNamespaces } from './loadMessages';
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // This typically corresponds to the `[locale]` segment
@@ -12,16 +11,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
-  const defaultNamespaces = ['common', 'layout', 'navigation'];
-
   return {
     locale,
-    // messages: (
-    //   await (locale === 'fa'
-    //     ? // When using Turbopack, this will enable HMR for `en`
-    //     import('../../messages/fa.json')
-    //     : import(`../../messages/${locale}.json`))
-    // ).default
-    messages: await loadNamespaces(locale, defaultNamespaces)
+    messages: (
+      await (locale === 'fa' ? // When using Turbopack, this will enable HMR for `en`
+        import('../../messages/fa.json')
+        : import(`../../messages/${locale}.json`))
+    ).default
   };
 });
