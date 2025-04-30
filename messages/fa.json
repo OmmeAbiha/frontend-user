@@ -16,5 +16,9 @@
   "NotFoundPage": {
     "description": "لطفاً نوار آدرس مرورگر خود را بررسی کنید یا از ناوبری برای رفتن به صفحه‌ای شناخته شده استفاده کنید.",
     "title": "صفحه پیدا نشد"
+  },
+  "LocaleSwitcher": {
+    "label": "زبان",
+    "locale": "{locale, select, fa {فارسی} en {English} ar {العربية} other {Other}}"
   }
 }
