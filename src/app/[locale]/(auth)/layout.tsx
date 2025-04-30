@@ -38,5 +38,11 @@ export default async function LocaleLayout({ children, params }: ProductPageProp
   // Enable static rendering
   setRequestLocale(locale);
 
-  return <BaseLayout locale={locale}>{children}</BaseLayout>;
+  return (
+    <>
+      <BaseLayout locale={locale}>
+        {children}
+      </BaseLayout>
+    </>
+  );
 }
