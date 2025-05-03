@@ -39,12 +39,10 @@ export default async function LocaleLayout({ children, params }: ProductPageProp
   setRequestLocale(locale);
 
   return (
-      <>
-        <div>Header</div>
-        <BaseLayout locale={locale}>
-          {children}
-        </BaseLayout>
-        <div>Footer</div>
-      </>
-    );
+    <>
+      <div>Header</div>
+      {children}
+      <div>Footer</div>
+    </>
+  );
 }

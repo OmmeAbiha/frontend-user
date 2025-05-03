@@ -1,3 +1,5 @@
+"use client"
+import { useRouter } from 'next/router';
 import BaseLayout from '@/components/BaseLayout';
 import NotFoundPage from '@/components/NotFoundPage';
 import { routing } from '@/i18n/routing';
@@ -7,6 +9,11 @@ import { routing } from '@/i18n/routing';
 // an invalid value as the `[locale]` param and calls `notFound()`.
 
 export default function GlobalNotFound() {
+  const router = useRouter();
+  const { someParam } = router.query; // Extract query parameters
+
+  console.log(someParam); // Logs the value of `someParam` from the query string
+
   return (
     <BaseLayout locale={routing.defaultLocale}>
       <NotFoundPage />

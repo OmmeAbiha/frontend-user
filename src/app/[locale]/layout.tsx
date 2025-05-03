@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
 
 interface ProductPageProps {
   params: Promise<{ locale: string }>;
-  children?: ReactNode; // تعریف children به عنوان یک پراپ اختیاری
+  children?: ReactNode;
 }
 
 export default async function LocaleLayout({ children, params }: ProductPageProps) {
@@ -39,8 +39,9 @@ export default async function LocaleLayout({ children, params }: ProductPageProp
   setRequestLocale(locale);
 
   return (
-    <>
+    <BaseLayout locale={locale}>
+      <div>Layout</div>
       {children}
-    </>
+    </BaseLayout>
   );
 }

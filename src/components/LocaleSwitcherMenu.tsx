@@ -33,7 +33,7 @@ export default function LocaleSwitcherMenu() {
             <MenuButton
                 className={clsx(
                     'flex items-center gap-2 rounded-full bg-gray-800 p-3 text-sm font-semibold text-white outline-none',
-                    isPending && 'opacity-50 pointer-events-none'
+                    isPending && 'bg-red-500 pointer-events-none'
                 )}
             >
                 <GrLanguage size={20} className="text-white text-base" />
