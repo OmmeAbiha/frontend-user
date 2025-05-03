@@ -40,7 +40,6 @@ export default async function LocaleLayout({ children, params }: ProductPageProp
 
   return (
     <BaseLayout locale={locale}>
-      <div>Layout</div>
       {children}
     </BaseLayout>
   );

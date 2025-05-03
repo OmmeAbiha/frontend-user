@@ -46,7 +46,7 @@ export default {
           success: 'hsl(var(--status-success))',
           error: 'hsl(var(--status-error))',
           warning: 'hsl(var(--status-warning))',
-          info:'hsl(var(--status-info))'
+          info: 'hsl(var(--status-info))'
         },
         border: 'hsl(var(--border))',
         chart: {
@@ -71,6 +71,9 @@ export default {
           '19': 'hsl(var(--chart-19))',
           '20': 'hsl(var(--chart-20))'
         }
+      },
+      maxWidth: {
+        'container': '1340px',
       },
     },
   },
