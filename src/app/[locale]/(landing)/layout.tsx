@@ -40,9 +40,7 @@ export default async function LocaleLayout({ children, params }: ProductPageProp
 
   return (
     <>
-      <div>Header</div>
-      {children}
-      <div>Footer</div>
+        
     </>
   );
 }
