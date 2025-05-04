@@ -3,14 +3,17 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/store/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-iranYekanFont)", ...fontFamily.sans, 'Inter'],
+        sans: ["var(--font-iranYekanFont)", ...fontFamily.sans],
+      },
+      gridTemplateColumns: {
+        '20': 'repeat(20, minmax(0, 1fr))',
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -23,16 +26,16 @@ export default {
           dark: 'hsl(var(--primary-dark))',
           foreground: 'hsl(var(--primary-foreground))'
         },
-        secondary: {
-          100: 'hsl(var(--secondary-100))',
-          200: 'hsl(var(--secondary-200))',
-          300: 'hsl(var(--secondary-300))',
-          400: 'hsl(var(--secondary-400))',
-          500: 'hsl(var(--secondary-500))',
-          600: 'hsl(var(--secondary-600))',
-          700: 'hsl(var(--secondary-700))',
-          800: 'hsl(var(--secondary-800))',
-          900: 'hsl(var(--secondary-900))'
+        tertiary: {
+          100: 'hsl(var(--tertiary-100))',
+          200: 'hsl(var(--tertiary-200))',
+          300: 'hsl(var(--tertiary-300))',
+          400: 'hsl(var(--tertiary-400))',
+          500: 'hsl(var(--tertiary-500))',
+          600: 'hsl(var(--tertiary-600))',
+          700: 'hsl(var(--tertiary-700))',
+          800: 'hsl(var(--tertiary-800))',
+          900: 'hsl(var(--tertiary-900))'
         },
         toast: {
           DEFAULT: 'hsl(var(--toast))',
@@ -46,7 +49,7 @@ export default {
           success: 'hsl(var(--status-success))',
           error: 'hsl(var(--status-error))',
           warning: 'hsl(var(--status-warning))',
-          info: 'hsl(var(--status-info))'
+          info:'hsl(var(--status-info))'
         },
         border: 'hsl(var(--border))',
         chart: {

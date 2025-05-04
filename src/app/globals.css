@@ -14,6 +14,15 @@
     --primary-foreground: 0 0% 100%;
     --secondary: 330 100% 85%;
     --secondary-foreground: 0 0% 30%;
+    --tertiary-100: 0 0% 96%;
+    --tertiary-200: 0 0% 93%;
+    --tertiary-300: 0 0% 88%;
+    --tertiary-400: 0 0% 74%;
+    --tertiary-500: 0 0% 62%;
+    --tertiary-600: 0 0% 46%;
+    --tertiary-700: 0 0% 38%;
+    --tertiary-800: 0 0% 26%;
+    --tertiary-900: 0 0% 13%;
     --toast: 0 0% 13%;
     --toast-foreground: 0 0% 100%;
     --status-success: 142 69% 58%;
@@ -32,48 +41,85 @@
   }
 
   [data-theme="dark"] {
-    --background: 222 47% 11%;
+    --background: 0 0% 10%;
     --foreground: 0 0% 90%;
-    --primary-veryLight: 167 45% 39%;
-    --primary-light: 171 47% 34%;
-    --primary-medium: 173 50% 30%;
-    --primary-main: 175 54% 26%;
-    --primary-dark: 175 47% 20%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 330 60% 45%;
-    --secondary-foreground: 0 0% 80%;
+    --primary-veryLight: 175 77% 26%;
+    --primary-light: 175 84% 32%;
+    --primary-medium: 173 80% 40%;
+    --primary-main: 171 77% 64%;
+    --primary-dark: 167 85% 89%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 330 100% 85%;
+    --secondary-foreground: 0 0% 70%;
+    --tertiary-100: 0 0% 13%;
+    --tertiary-200: 0 0% 26%;
+    --tertiary-300: 0 0% 38%;
+    --tertiary-400: 0 0% 46%;
+    --tertiary-500: 0 0% 62%;
+    --tertiary-600: 0 0% 74%;
+    --tertiary-700: 0 0% 88%;
+    --tertiary-800: 0 0% 93%;
+    --tertiary-900: 0 0% 96%;
     --toast: 0 0% 100%;
-    --toast-foreground:  0 0% 10%;
-    --status-success: 142 49% 38%;
-    --status-error: 0 71% 51%;
-    --status-warning: 27 76% 41%;
-    --status-info: 213 74% 48%;
-    --border: 0 0% 30%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 40%;
-    --chart-1: 12 56% 41%;
-    --chart-2: 173 38% 29%;
-    --chart-3: 197 27% 19%;
-    --chart-4: 43 54% 46%;
-    --chart-5: 27 67% 47%;
+    --toast-foreground: 0 0% 13%;
+    --status-success: 142 69% 58%;
+    --status-error: 0 91% 71%;
+    --status-warning: 27 96% 61%;
+    --status-info: 213 94% 68%;
+    --border: 0 0% 20%;
+    --input: 0 0% 10%;
+    --ring: 0 0% 20%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border scroll_custom;
   }
   body {
     @apply bg-background text-foreground;
   }
 }
 
+
 @layer components {
   .fcc {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  /* Chrome, Safari, Opera */
+  .hideScroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Internet Explorer, Edge */
+  .hideScroll {
+    -ms-overflow-style: none;
+  }
+
+  /* Firefox */
+  .hideScroll {
+    scrollbar-width: none;
+  }
+
+
+  .scroll_custom::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .scroll_custom::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scroll_custom::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(214, 214, 214);
   }
 }

@@ -38,8 +38,8 @@ export default async function LocaleLayout({ children, params }: ProductPageProp
   setRequestLocale(locale);
 
   return (
-    <>
+    <main>
       {children}
-    </>
+    </main>
   );
 }
