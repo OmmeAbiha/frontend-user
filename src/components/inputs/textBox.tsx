@@ -66,7 +66,7 @@
 //       <input
 //         id="customTextBox"
 //         className={`py-2 px-3 border rounded-lg caret-primary-medium focus:outline-none text-sm ${error && touched ? 'border-danger-400' : 'border-border focus:border-primary-main'} bg-background ${className}`}
-        
+
 //         {...rest}
 //       />
 //       <div className='mt-1'>
@@ -87,6 +87,7 @@
 
 
 
+import { useLocale } from 'next-intl';
 import React, { InputHTMLAttributes, useState } from 'react'
 
 interface TextBoxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -97,14 +98,16 @@ interface TextBoxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 function TextBox({ label, className, error, touched, ...rest }: TextBoxProps) {
+  const locale = useLocale();
+  const isEnglish = locale === 'en';
 
   return (
     <div className={`flex flex-col relative ${className}`}>
-      <label htmlFor="customTextBox" className={`absolute bg-background rounded-md px-1 -top-2 right-3 pointer-events-none transition-all duration-500 font-medium text-[11px] ${error && touched ? 'text-danger-400' : 'text-tertiary-600'}`}>{label}</label>
+      <label htmlFor="customTextBox" className={`absolute bg-background rounded-md px-1 -top-2 ${isEnglish ? 'left-3' : 'right-3'} pointer-events-none transition-all duration-500 font-medium text-[11px] ${error && touched ? 'text-danger-400' : 'text-tertiary-600'}`}>{label}</label>
       <input
         id="customTextBox"
         className={`h-12 py-2 px-3 border rounded-lg caret-primary-medium focus:outline-none text-sm ${error && touched ? 'border-danger-400' : 'border-border-2 focus:border-primary-main'} bg-background ${className}`}
-        
+
         {...rest}
       />
       <div className='mt-1'>

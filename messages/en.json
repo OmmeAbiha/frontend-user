@@ -20,5 +20,13 @@
   "LocaleSwitcher": {
     "label": "Language",
     "locale": "{locale, select, fa {Farsi} en {English} ar {Arabic} other {Other}}"
+  },
+  "auth": {
+    "enterInfo": "To log in or sign up, please enter your user information:",
+    "codeLabel": "Code",
+    "phoneLabel": "Phone Number",
+    "continueButton": "Continue",
+    "termsText": "Using this service means accepting",
+    "termsLink": "Terms and Conditions"
   }
 }

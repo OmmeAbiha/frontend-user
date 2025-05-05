@@ -4,19 +4,19 @@ import { defineRouting } from 'next-intl/routing';
 export const routing = defineRouting({
   locales: ['fa', 'en', 'ar'],
   defaultLocale: 'fa',
-  // localeDetection: false,
   pathnames: {
     '/': '/',
-    '/pathnames': {
-      fa: '/pathnames',
-      en: '/pathnames',
-      ar: '/pathnames'
-    }
+    '/auth': '/auth',
+    '/auth/code': '/auth/code',
+    // '/pathnames': {
+    //   fa: '/pathnames',
+    //   en: '/pathnames',
+    //   ar: '/pathnames'
+    // }
   }
 });
 
 export type Pathnames = keyof typeof routing.pathnames;
 export type Locale = (typeof routing.locales)[number];
 
-export const { Link, getPathname, redirect, usePathname, useRouter } =
-  createNavigation(routing);
+export const { Link, getPathname, redirect, usePathname, useRouter } = createNavigation(routing);

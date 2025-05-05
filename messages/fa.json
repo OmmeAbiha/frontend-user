@@ -20,5 +20,13 @@
   "LocaleSwitcher": {
     "label": "زبان",
     "locale": "{locale, select, fa {فارسی} en {English} ar {العربية} other {Other}}"
+  },
+  "auth": {
+    "enterInfo": "برای ورود یا ثبت‌نام، اطلاعات کاربری خود را وارد کنید:",
+    "codeLabel": "کد",
+    "phoneLabel": "شماره موبایل",
+    "continueButton": "ادامه",
+    "termsText": "استفاده از این سرویس به معنی پذیرش",
+    "termsLink": "قوانین و مقررات"
   }
 }
