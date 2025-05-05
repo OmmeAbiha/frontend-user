@@ -102,7 +102,7 @@ const DatePickerCustom = ({
 
       {error && touched ? (
         <div className='mt-1'>
-          <span className='text-status-error font-bold text-[11px] p-0.5 px-2 bg-status-error/10 rounded-[4px]'>{error}</span>
+          <span className='text-danger-400 font-bold text-[10px] p-0.5 px-2 bg-danger-300/20 rounded-[4px]'>{error}</span>
         </div>
       ) : null}
     </div>
@@ -115,7 +115,7 @@ function CustomButton({ value, openCalendar, error, touched, placeholder, classN
   return (
     // <div
     //   as="input"
-    //   className={`h-10 flex items-center px-3 rounded-lg focus:border-primary-main text-tertiary-700 border-2  text-sm cursor-pointer transition-all duration-300 ${error && touched ? 'border-status-error' : 'border-border focus:border-primary-main'}`}
+    //   className={`h-10 flex items-center px-3 rounded-lg focus:border-primary-main text-tertiary-700 border-2  text-sm cursor-pointer transition-all duration-300 ${error && touched ? 'border-danger-400' : 'border-border focus:border-primary-main'}`}
     //   onClick={openCalendar}
     // >
     //   {value || "انتخاب تاریخ"}
@@ -124,7 +124,7 @@ function CustomButton({ value, openCalendar, error, touched, placeholder, classN
       readOnly
       value={value || ""}
       placeholder={placeholder || "انتخاب تاریخ"}
-      className={`h-10 flex w-full items-center px-3 rounded-lg focus:border-primary-main text-tertiary-700 border outline-none text-sm cursor-pointer transition-all duration-300 ${error && touched ? 'border-status-error' : 'border-border focus:border-primary-main'} ${className}`}
+      className={`h-10 flex w-full items-center px-3 rounded-lg focus:border-primary-main text-tertiary-700 border outline-none text-sm cursor-pointer transition-all duration-300 ${error && touched ? 'border-danger-400' : 'border-border-cta-natural focus:border-primary-main'} ${className}`}
       onClick={openCalendar}
     />
   );

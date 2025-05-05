@@ -18,14 +18,26 @@ export default {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+
         primary: {
           veryLight: 'hsl(var(--primary-veryLight))',
           light: 'hsl(var(--primary-light))',
           medium: 'hsl(var(--primary-medium))',
-          main: 'hsl(var(--primary-main))',
+          main: 'hsl(var(--primary))',
           dark: 'hsl(var(--primary-dark))',
-          foreground: 'hsl(var(--primary-foreground))'
+          foreground: 'hsl(var(--primary-foreground))',
         },
+
+        secondary: {
+          100: 'hsl(var(--secondary-100))',
+          200: 'hsl(var(--secondary-200))',
+          300: 'hsl(var(--secondary-300))',
+          400: 'hsl(var(--secondary-400))',
+          500: 'hsl(var(--secondary-500))',
+          600: 'hsl(var(--secondary-600))',
+          700: 'hsl(var(--secondary-700))',
+        },
+
         tertiary: {
           100: 'hsl(var(--tertiary-100))',
           200: 'hsl(var(--tertiary-200))',
@@ -35,48 +47,64 @@ export default {
           600: 'hsl(var(--tertiary-600))',
           700: 'hsl(var(--tertiary-700))',
           800: 'hsl(var(--tertiary-800))',
-          900: 'hsl(var(--tertiary-900))'
+          900: 'hsl(var(--tertiary-900))',
         },
-        toast: {
-          DEFAULT: 'hsl(var(--toast))',
-          foreground: 'hsl(var(--toast-foreground))'
+
+        success: {
+          100: 'hsl(var(--success-100))',
+          300: 'hsl(var(--success-300))',
+          400: 'hsl(var(--success-400))',
+          500: 'hsl(var(--success-500))',
+          700: 'hsl(var(--success-700))',
         },
-        input: {
-          DEFAULT: 'hsl(var(--input))',
-          foreground: 'hsl(var(--input-border))'
+
+        warning: {
+          100: 'hsl(var(--warning-100))',
+          300: 'hsl(var(--warning-300))',
+          400: 'hsl(var(--warning-400))',
+          500: 'hsl(var(--warning-500))',
+          700: 'hsl(var(--warning-700))',
         },
-        status: {
-          success: 'hsl(var(--status-success))',
-          error: 'hsl(var(--status-error))',
-          warning: 'hsl(var(--status-warning))',
-          info:'hsl(var(--status-info))'
+
+        info: {
+          100: 'hsl(var(--info-100))',
+          300: 'hsl(var(--info-300))',
+          400: 'hsl(var(--info-400))',
+          500: 'hsl(var(--info-500))',
+          700: 'hsl(var(--info-700))',
         },
-        border: 'hsl(var(--border))',
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
-          '6': 'hsl(var(--chart-6))',
-          '7': 'hsl(var(--chart-7))',
-          '8': 'hsl(var(--chart-8))',
-          '9': 'hsl(var(--chart-9))',
-          '10': 'hsl(var(--chart-10))',
-          '11': 'hsl(var(--chart-11))',
-          '12': 'hsl(var(--chart-12))',
-          '13': 'hsl(var(--chart-13))',
-          '14': 'hsl(var(--chart-14))',
-          '15': 'hsl(var(--chart-15))',
-          '16': 'hsl(var(--chart-16))',
-          '17': 'hsl(var(--chart-17))',
-          '18': 'hsl(var(--chart-18))',
-          '19': 'hsl(var(--chart-19))',
-          '20': 'hsl(var(--chart-20))'
-        }
+
+        danger: {
+          100: 'hsl(var(--danger-100))',
+          300: 'hsl(var(--danger-300))',
+          400: 'hsl(var(--danger-400))',
+          500: 'hsl(var(--danger-500))',
+          700: 'hsl(var(--danger-700))',
+        },
+
+        border: {
+          1: 'var(--border-1)',
+          2: 'var(--border-2)',
+
+          cta: {
+            natural: {
+              DEFAULT: 'hsl(var(--border-cta-naturalDefault))',
+              darkSelected: 'hsl(var(--border-cta-naturalDarkSelected))',
+              focus: 'hsl(var(--border-cta-naturalFocus))',
+            },
+            secondary: {
+              disabled: 'hsl(var(--border-cta-secondaryDisabled))',
+              loading: 'hsl(var(--border-cta-secondaryLoading))',
+              DEFAULT: 'hsl(var(--border-cta-secondaryDefault))',
+              selected: 'hsl(var(--border-cta-secondarySelected))',
+              focus: 'hsl(var(--border-cta-secondaryFocus))',
+            },
+          },
+        },
       },
+
       maxWidth: {
-        'container': '1340px',
+        container: '1340px',
       },
     },
   },

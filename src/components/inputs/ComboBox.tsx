@@ -11,6 +11,7 @@ interface listDataType {
     id: number;
     title: string;
     icon?: IconType;
+    uniqueKey: string; // اضافه کردن uniqueKey به نوع داده
 }
 
 interface ComboBoxProps {
@@ -27,7 +28,7 @@ interface ComboBoxProps {
     disableArrow?: boolean;
     onChange?: (event: { target: { name: string; value: string } }) => void;
     value?: listDataType | null;
-    [key: string]: unknown;
+    [key: number]: unknown;
 }
 
 export default function ComboBox({
@@ -126,7 +127,7 @@ export default function ComboBox({
                                     <ComboboxInput
                                         placeholder={placeholder || "Select an option"}
                                         readOnly
-                                        className={`w-full rounded-lg cursor-pointer h-full border py-1.5 ${!disableArrow ? 'pl-8' : 'pl-3'} pr-3 text-sm text-tertiary-800 focus:outline-none ${className} ${error && touched ? 'border-status-error' : 'border-border focus:border-primary-main'
+                                        className={`w-full rounded-lg cursor-pointer h-full border py-2 ${!disableArrow ? 'pl-8' : 'pl-3'} pr-3 text-sm text-tertiary-800 focus:outline-none ${className} ${error && touched ? 'border-danger-400' : 'border-border-cta-natural focus:border-primary-main'
                                             }`}
                                         displayValue={(item: listDataType | null) => item?.title || ''}
                                         onChange={(e) => setQuery(e.target.value)}
@@ -143,9 +144,8 @@ export default function ComboBox({
                                 >
                                     {filteredListData.map((item) => (
                                         <ComboboxOption
-
+                                            key={item.id} // استفاده از uniqueKey به عنوان کلید
                                             style={{ height: height }}
-                                            key={item.id}
                                             value={item}
                                             className={clsx(
                                                 "group flex items-center gap-2 rounded-lg py-1.5 px-3 cursor-pointer h-full text-tertiary-800 hover:bg-tertiary-200 transition-all duration-300",
@@ -165,7 +165,7 @@ export default function ComboBox({
 
             {error && touched ? (
                 <div className='mt-1'>
-                    <span className='text-status-error font-bold text-[11px] p-0.5 px-2 bg-status-error/10 rounded-[4px]'>{error}</span>
+                    <span className='text-danger-400 font-bold text-[10px] p-0.5 px-2 bg-danger-300/20 rounded-[4px]'>{error}</span>
                 </div>
             ) : null}
         </div>

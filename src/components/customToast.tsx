@@ -18,7 +18,7 @@ function CustomToast({ status, title, id, duration}: CustomToastProps) {
             case 'success':
                 return 'bg-status-success';
             case 'error':
-                return 'bg-status-error';
+                return 'bg-danger-400';
             case 'warning':
                 return 'bg-status-warning';
             case 'info':
@@ -56,7 +56,7 @@ function CustomToast({ status, title, id, duration}: CustomToastProps) {
                     <div className="flex-shrink-0 ml-1">
                         {status === 'success' && <HiCheckCircle className="h-5 w-5 text-status-success" aria-hidden="true" />}
                         {status === 'warning' && <HiExclamationCircle className="h-5 w-5 text-status-warning" aria-hidden="true" />}
-                        {status === 'error' && <HiXCircle className="h-5 w-5 text-status-error" aria-hidden="true" />}
+                        {status === 'error' && <HiXCircle className="h-5 w-5 text-danger-400" aria-hidden="true" />}
                         {status === 'info' && <HiExclamationCircle className="h-5 w-5 text-status-info" aria-hidden="true" />}
                     </div>
                     <div className='text-sm'>{title}</div>

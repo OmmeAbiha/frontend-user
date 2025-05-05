@@ -2,7 +2,7 @@ import React from 'react'
 
 function Page() {
   return (
-    <div>sign-in</div>
+    <div>code</div>
   )
 }
 
