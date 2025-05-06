@@ -14,19 +14,23 @@
     "name": "next-intl example"
   },
   "NotFoundPage": {
-    "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
-    "title": "Page not found"
+    "title": "404",
+    "description": "The requested page was not found.",
+    "backButton": "Go back to the previous page"
   },
   "LocaleSwitcher": {
     "label": "Language",
     "locale": "{locale, select, fa {Farsi} en {English} ar {Arabic} other {Other}}"
   },
-  "auth": {
-    "enterInfo": "To log in or sign up, please enter your user information:",
+  "DarkModeSwitcher": {
+    "lightLabel": "Light Mode",
+    "darkLabel": "Dark Mode"
+  },
+  "Auth": {
+    "enterInfo": "To sign in or register, enter your user information:",
     "codeLabel": "Code",
     "phoneLabel": "Phone Number",
     "continueButton": "Continue",
-    "termsText": "Using this service means accepting",
-    "termsLink": "Terms and Conditions"
+    "termsText": "Using this service means you accept the <link>terms and conditions</link>."
   }
 }

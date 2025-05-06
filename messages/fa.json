@@ -14,19 +14,23 @@
     "name": ""
   },
   "NotFoundPage": {
-    "description": "لطفاً نوار آدرس مرورگر خود را بررسی کنید یا از ناوبری برای رفتن به صفحه‌ای شناخته شده استفاده کنید.",
-    "title": "صفحه پیدا نشد"
+    "title": "۴۰۴",
+    "description": "صفحه موردنظر یافت نشد.",
+    "backButton": "بازگشت به صفحه قبل"
   },
   "LocaleSwitcher": {
     "label": "زبان",
     "locale": "{locale, select, fa {فارسی} en {English} ar {العربية} other {Other}}"
   },
-  "auth": {
+  "DarkModeSwitcher": {
+    "lightLabel": "حالت روشن",
+    "darkLabel": "حالت تیره"
+  },
+  "Auth": {
     "enterInfo": "برای ورود یا ثبت‌نام، اطلاعات کاربری خود را وارد کنید:",
     "codeLabel": "کد",
     "phoneLabel": "شماره موبایل",
     "continueButton": "ادامه",
-    "termsText": "استفاده از این سرویس به معنی پذیرش",
-    "termsLink": "قوانین و مقررات"
+    "termsText": "استفاده از این سرویس به معنی پذیرش <link>قوانین و مقررات</link> می باشد."
   }
 }

@@ -1,14 +1,17 @@
 'use client';
 
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { IoChevronDownSharp } from 'react-icons/io5';
 import { GrLanguage } from "react-icons/gr";
+import { motion } from 'framer-motion';
 import { useTransition } from 'react';
 import { useParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/routing';
 import { routing } from '@/i18n/routing';
 import clsx from 'clsx';
+import { useEffect, useRef, useState } from 'react';
+import LoadingBox from './LoadingBox';
+import { HiChevronDown } from 'react-icons/hi2';
 
 export default function LocaleSwitcherMenu() {
     const t = useTranslations('LocaleSwitcher');
@@ -17,6 +20,29 @@ export default function LocaleSwitcherMenu() {
     const pathname = usePathname();
     const params = useParams();
     const [isPending, startTransition] = useTransition();
+
+    const menuButtonRef = useRef<HTMLButtonElement>(null);
+    const [menuWidth, setMenuWidth] = useState<number | undefined>(undefined);
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        const updateWidth = () => {
+            if (menuButtonRef.current) {
+                setMenuWidth(menuButtonRef.current.offsetWidth);
+            }
+        };
+
+        updateWidth();
+
+        const resizeObserver = new ResizeObserver(updateWidth);
+        if (menuButtonRef.current) {
+            resizeObserver.observe(menuButtonRef.current);
+        }
+
+        return () => {
+            resizeObserver.disconnect();
+        };
+    }, []);
 
     const handleChange = (nextLocale: string) => {
         startTransition(() => {
@@ -29,27 +55,48 @@ export default function LocaleSwitcherMenu() {
     };
 
     return (
-        <Menu as="div" className="relative inline-block">
+        <Menu as="div" className="w-full relative inline-block">
             <MenuButton
+                ref={menuButtonRef}
+                onClick={() => setIsOpen(!isOpen)}
                 className={clsx(
-                    'flex items-center gap-2 rounded-full bg-gray-800 p-3 text-sm font-semibold text-white outline-none',
-                    isPending && 'bg-red-500 pointer-events-none'
+                    'w-full flex h-12 items-center gap-2 rounded-lg border border-primary-main hover:bg-primary-light p-3 text-sm font-semibold text-primary-main outline-none',
+                    isPending && 'pointer-events-none'
                 )}
             >
-                <GrLanguage size={20} className="text-white text-base" />
+                {
+                    isPending ? (
+                        <LoadingBox size={40} color='#FDB612' />
+                    ) : (
+                        <div className='flex w-full h-full gap-2 items-center justify-between'>
+                            <div className='flex gap-2'>
+                                <GrLanguage size={20} className="text-primary-main text-base" />
+                                <span>{t('label')}</span>
+                            </div>
+                            <motion.div
+                                animate={{ rotate: isOpen ? 180 : 0 }}
+                                transition={{ duration: 0.3 }}
+                                className=""
+                            >
+                                <HiChevronDown size={18} />
+                            </motion.div>
+                        </div>
+                    )
+                }
             </MenuButton>
 
             <MenuItems
                 anchor="bottom end"
-                className="absolute z-50 mt-1 gap-1 flex flex-col w-40 rounded-xl border border-white/5 bg-gray-900 p-1 text-sm text-white shadow-lg outline-none"
+                style={{ width: menuWidth }}
+                className="absolute z-50 mt-1 gap-1 flex flex-col rounded-xl bg-background p-1 text-sm shadow-md outline-none"
             >
                 {routing.locales.map((cur) => (
                     <MenuItem key={cur} as="button" onClick={() => handleChange(cur)}
                         className={({ active }) =>
                             clsx(
-                                'w-full px-3 h-10 rounded-md ',
+                                'w-full px-3 h-10 rounded-md text-primary-dark',
                                 active ? 'bg-white/10' : '',
-                                cur === locale ? 'bg-red-300' : ''
+                                cur === locale ? 'bg-primary-light' : ''
                             )
                         }
                     >
@@ -57,6 +104,6 @@ export default function LocaleSwitcherMenu() {
                     </MenuItem>
                 ))}
             </MenuItems>
-        </Menu>
+        </Menu >
     );
 }

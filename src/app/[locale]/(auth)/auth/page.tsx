@@ -1,6 +1,5 @@
 "use client"
 import React from 'react';
-import Image from 'next/image'
 import Link from 'next/link';
 // i18n
 import { useRouter } from '@/i18n/routing';
@@ -13,12 +12,6 @@ import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
 // React Icon
 import { FaArrowLeftLong } from "react-icons/fa6";
-// Assets
-import Logo from "@/public/common/logo/favicon-70x87.png"
-import Typography from "@/public/common/logo/Typography.png"
-// Animation
-import { motion } from 'framer-motion';
-import LocaleSwitcherMenu from '@/src/components/LocaleSwitcherMenu';
 
 
 const validationSchema = Yup.object({
@@ -31,7 +24,7 @@ const validationSchema = Yup.object({
 
 function Page() {
   const router = useRouter();
-  const t = useTranslations('auth');
+  const t = useTranslations('Auth');
   const locale = useLocale();
   const isEnglish = locale === 'en';
 
@@ -51,41 +44,25 @@ function Page() {
     }
   });
 
-  const animationVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
 
   return (
-    <motion.div
-      className='w-[310px] h-full fcc flex-col'
-      initial="hidden"
-      animate="visible"
-      variants={animationVariants}
-    >
-      <div className='w-full mb-10 text-xs flex gap-2'>
-        <Image
-          unoptimized
-          src={Logo}
-          alt='login image'
-          className='object-contain w-[60px] h-auto'
-          width={70}
-          height={87}
-        />
-        <Image
-          unoptimized
-          src={Typography}
-          alt='login image'
-          className='object-contain w-[160px] h-auto'
-          width={260}
-          height={96}
-        />
-      </div>
-
+    <>
       <form className='flex flex-col w-full max-w-[320px] gap-y-4' onSubmit={formik.handleSubmit}>
         <div className='flex flex-col w-full'>
           <p className='text-xs text-tertiary-600 mb-5'>{t('enterInfo')}</p>
-          <div className='flex gap-2'>
+          <div className={`flex ${isEnglish && "flex-row-reverse"}`}>
+            <TextBox
+              id='phoneNumber'
+              label={t('phoneLabel')}
+              type="phone"
+              name="phoneNumber"
+              className='w-full'
+              onChange={formik.handleChange}
+              value={formik.values.phoneNumber}
+              error={formik.errors.phoneNumber}
+              touched={formik.touched.phoneNumber}
+            />
+            <span className='text-tertiary-400 flex pt-3.5 mx-1'>-</span>
             <TextBox
               id='countryCodes'
               label={t('codeLabel')}
@@ -96,17 +73,6 @@ function Page() {
               value={formik.values.countryCodes}
               error={formik.errors.countryCodes}
               touched={formik.touched.countryCodes}
-            />
-            <TextBox
-              id='phoneNumber'
-              label={t('phoneLabel')}
-              type="text"
-              name="phoneNumber"
-              className='w-full'
-              onChange={formik.handleChange}
-              value={formik.values.phoneNumber}
-              error={formik.errors.phoneNumber}
-              touched={formik.touched.phoneNumber}
             />
           </div>
         </div>
@@ -119,13 +85,19 @@ function Page() {
       </form>
 
       <p className='text-xs text-tertiary-500 mt-5 leading-5'>
-        {t('termsText')} <Link href="/help-center/general-policy" target="_blank" className='text-secondary-400 hover:underline transition-all duration-300'>{t('termsLink')}</Link>
+        {t.rich('termsText', {
+          link: (chunks) => (
+            <Link
+              href="/help-center/general-policy"
+              target="_blank"
+              className="text-secondary-400 hover:underline transition-all duration-300"
+            >
+              {chunks}
+            </Link>
+          )
+        })}
       </p>
-
-      <div>
-        <LocaleSwitcherMenu />
-      </div>
-    </motion.div>
+    </>
   );
 }
 

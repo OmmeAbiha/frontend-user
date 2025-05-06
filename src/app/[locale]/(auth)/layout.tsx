@@ -1,12 +1,12 @@
+
 import { ReactNode } from 'react';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 // i18n
 import { routing } from '@/i18n/routing';
 // Next Intl
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-// Assets
-import images_1 from "@/public/mock-images/—Pngtree—ramadan elements png blue_6124415.png"
+// Components
+import BaseLayoutAuth from './_components/BaseLayoutAuth';
 
 
 type Props = {
@@ -45,23 +45,9 @@ export default async function LocaleLayout({ children, params }: ProductPageProp
 
   return (
     <main>
-      <div className='flex gap-8 w-full h-screen p-8'>
-        <div className='w-full lg:w-[40%] h-full fcc flex-col '>
-          {children}
-        </div>
-        <div className='w-[60%] h-full hidden lg:flex'>
-          <div className='w-full h-full rounded-3xl overflow-hidden bg-primary-medium shadow-lg'>
-            <Image
-              unoptimized
-              src={images_1}
-              alt='login image'
-              className='object-cover'
-              width={1000}
-              height={1000}
-            />
-          </div>
-        </div>
-      </div>
+      <BaseLayoutAuth>
+        {children}
+      </BaseLayoutAuth>
     </main>
   );
 }

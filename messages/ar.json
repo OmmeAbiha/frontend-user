@@ -14,19 +14,23 @@
     "name": ""
   },
   "NotFoundPage": {
-    "description": "يرجى التحقق من شريط العنوان في متصفحك أو استخدام التنقل للذهاب إلى صفحة معروفة.",
-    "title": "الصفحة غير موجودة"
+    "title": "٤٠٤",
+    "description": "الصفحة المطلوبة غير موجودة.",
+    "backButton": "العودة إلى الصفحة السابقة"
   },
   "LocaleSwitcher": {
     "label": "اللغة",
     "locale": "{locale, select, fa {الفارسية} en {الإنجليزية} ar {العربية} other {أخرى}}"
   },
-  "auth": {
-    "enterInfo": "لتسجيل الدخول أو التسجيل، يرجى إدخال معلومات المستخدم الخاصة بك:",
+  "DarkModeSwitcher": {
+    "lightLabel": "الوضع الفاتح",
+    "darkLabel": "الوضع الداكن"
+  },
+  "Auth": {
+    "enterInfo": "للدخول أو التسجيل، أدخل معلوماتك:",
     "codeLabel": "رمز",
-    "phoneLabel": "رقم الهاتف",
-    "continueButton": "متابعة",
-    "termsText": "استخدام هذه الخدمة يعني قبول",
-    "termsLink": "الشروط والأحكام"
+    "phoneLabel": "رقم الجوال",
+    "continueButton": "استمرار",
+    "termsText": "باستخدامك هذه الخدمة، فإنك توافق على <link>الشروط والأحكام</link>."
   }
 }
