@@ -4,81 +4,81 @@ const iranYekanFont = localFont({
     src: [
         // Thin
         {
-            path: "../../public/fonts/woff/iranyekanwebthinfanum.woff",
+            path: "../../public/fonts/iranYekanFont/woff/IRANYekanWebThin.woff",
             weight: "100",
             style: "normal"
         },
         {
-            path: "../../public/fonts/ttf/iranyekanwebthinfanum.ttf",
+            path: "../../public/fonts/iranYekanFont/ttf/IRANYekanWebThin.ttf",
             weight: "100",
             style: "normal"
         },
         // Light
         {
-            path: "../../public/fonts/woff/iranyekanweblightfanum.woff",
+            path: "../../public/fonts/iranYekanFont/woff/IRANYekanWebLight.woff",
             weight: "300",
             style: "normal"
         },
         {
-            path: "../../public/fonts/ttf/iranyekanweblightfanum.ttf",
+            path: "../../public/fonts/iranYekanFont/ttf/IRANYekanWebLight.ttf",
             weight: "300",
             style: "normal"
         },
         // Regular
         {
-            path: "../../public/fonts/woff/iranyekanwebregularfanum.woff",
+            path: "../../public/fonts/iranYekanFont/woff/IRANYekanWebRegular.woff",
             weight: "400",
             style: "normal"
         },
         {
-            path: "../../public/fonts/ttf/iranyekanwebregularfanum.ttf",
+            path: "../../public/fonts/iranYekanFont/ttf/IRANYekanWebRegular.ttf",
             weight: "400",
             style: "normal"
         },
         // Medium
         {
-            path: "../../public/fonts/woff/iranyekanwebmediumfanum.woff",
+            path: "../../public/fonts/iranYekanFont/woff/IRANYekanWebMedium.woff",
             weight: "500",
             style: "normal"
         },
         {
-            path: "../../public/fonts/ttf/iranyekanwebmediumfanum.ttf",
+            path: "../../public/fonts/iranYekanFont/ttf/IRANYekanWebMedium.ttf",
             weight: "500",
             style: "normal"
         },
         // Bold
         {
-            path: "../../public/fonts/woff/iranyekanwebboldfanum.woff",
+            path: "../../public/fonts/iranYekanFont/woff/IRANYekanWebBold.woff",
             weight: "700",
             style: "normal"
         },
         {
-            path: "../../public/fonts/ttf/iranyekanwebboldfanum.ttf",
+            path: "../../public/fonts/iranYekanFont/ttf/IRANYekanWebBold.ttf",
             weight: "700",
             style: "normal"
         },
         // ExtraBold
         {
-            path: "../../public/fonts/woff/iranyekanwebextraboldfanum.woff",
+            path: "../../public/fonts/iranYekanFont/woff/IRANYekanWebExtraBold.woff",
             weight: "800",
             style: "normal"
         },
         {
-            path: "../../public/fonts/ttf/iranyekanwebextraboldfanum.ttf",
+            path: "../../public/fonts/iranYekanFont/ttf/IRANYekanWebExtraBold.ttf",
             weight: "800",
             style: "normal"
         },
         //Black
         {
-            path: "../../public/fonts/woff/iranyekanwebblackfanum.woff",
+            path: "../../public/fonts/iranYekanFont/woff/IRANYekanWebBlack.woff",
             weight: "900",
             style: "normal"
         },
         {
-            path: "../../public/fonts/ttf/iranyekanwebblackfanum.ttf",
+            path: "../../public/fonts/iranYekanFont/ttf/IRANYekanWebBlack.ttf",
             weight: "900",
             style: "normal"
-        }
+        },
     ],
     variable: "--font-iranYekanFont",
     style: "normal",

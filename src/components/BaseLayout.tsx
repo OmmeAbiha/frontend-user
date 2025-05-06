@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import iranYekanFontNum from "@/src/fonts/iranYekanFontNum";
 import iranYekanFont from "@/src/fonts/iranYekanFont";
 import { getMessages } from 'next-intl/server';
 import Providers from './Providers';
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
 
 export default async function BaseLayout({ children, locale }: Props) {
   const messages = await getMessages();
+  const isEnglish = locale === 'en';
+  console.log(iranYekanFont.variable)
+
 
   return (
     <html
@@ -32,7 +36,14 @@ export default async function BaseLayout({ children, locale }: Props) {
       <head>
         <meta name="apple-mobile-web-app-title" content="Omme Abiha" />
       </head>
-      <body className={`${iranYekanFont.variable} font-sans antialiased`}>
+      <body
+        className={`
+      ${iranYekanFont.variable} 
+      ${iranYekanFontNum.variable}
+      ${isEnglish ? 'font-IranYekanFont' : 'font-IranYekanFontNum'} 
+       antialiased 
+      `}
+      >
         <Providers messages={messages} locale={locale}>
           {children}
         </Providers>

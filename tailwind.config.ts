@@ -10,7 +10,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-iranYekanFont)", ...fontFamily.sans],
+        // sans: ["var(--font-iranYekanFontNum)", "var(--font-iranYekanFont)", ...fontFamily.sans],
+        IranYekanFont: ["var(--font-iranYekanFont)", ...fontFamily.sans],
+        IranYekanFontNum: ["var(--font-iranYekanFontNum)", ...fontFamily.sans],
       },
       gridTemplateColumns: {
         '20': 'repeat(20, minmax(0, 1fr))',
