@@ -60,7 +60,7 @@ export default function LocaleSwitcherMenu() {
                 ref={menuButtonRef}
                 onClick={() => setIsOpen(!isOpen)}
                 className={clsx(
-                    'w-full flex h-12 items-center gap-2 rounded-lg border border-primary-main hover:bg-primary-light p-3 text-sm font-semibold text-primary-main outline-none',
+                    'w-full flex h-12 items-center gap-2 rounded-lg border border-primary-main hover:bg-primary-light p-3 text-sm text-primary-main outline-none',
                     isPending && 'pointer-events-none'
                 )}
             >
