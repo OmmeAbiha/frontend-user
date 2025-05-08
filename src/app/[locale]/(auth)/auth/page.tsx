@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 // i18n
 import { useRouter } from '@/i18n/routing';
@@ -12,6 +12,8 @@ import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
 // React Icon
 import { FaArrowLeftLong } from "react-icons/fa6";
+import ResponsiveDialogDrawer from '@/src/components/ResponsiveDialogDrawer';
+import CountryPicker from './_components/CountryPicker';
 
 
 const validationSchema = Yup.object({
@@ -27,6 +29,8 @@ function Page() {
   const t = useTranslations('Auth');
   const locale = useLocale();
   const isEnglish = locale === 'en';
+  const [open, setOpen] = useState(false);
+  const [countrySelect, setCountrySelect] = useState(10);
 
   const formik = useFormik({
     initialValues: {
@@ -63,17 +67,23 @@ function Page() {
               touched={formik.touched.phoneNumber}
             />
             <span className='text-tertiary-400 flex pt-3.5 mx-1'>-</span>
-            <TextBox
-              id='countryCodes'
-              label={t('codeLabel')}
-              type="text"
-              name="countryCodes"
-              className='w-[80px]'
-              onChange={formik.handleChange}
-              value={formik.values.countryCodes}
-              error={formik.errors.countryCodes}
-              touched={formik.touched.countryCodes}
-            />
+
+            <div
+              onClick={() => setOpen(true)}
+              className='cursor-pointer relative h-12 w-20 py-2 px-3 border border-border-2 rounded-lg caret-primary-medium focus:outline-none text-sm bg-background'>
+              <span className={`absolute bg-background rounded-sm px-1 -top-2 ${isEnglish ? 'left-3' : 'right-3'} pointer-events-none transition-all duration-500 font-medium text-[11px] text-tertiary-600`}>
+                {t('codeLabel')}
+              </span>
+            </div>
+            <ResponsiveDialogDrawer
+              open={open}
+              setOpen={setOpen}
+            >
+              <CountryPicker
+                countrySelect={countrySelect}
+                setCountrySelect={setCountrySelect} />
+            </ResponsiveDialogDrawer>
+
           </div>
         </div>
         <Button
@@ -97,6 +107,16 @@ function Page() {
           )
         })}
       </p>
+
+      {/* <div>
+
+        <div role='button' onClick={() => setOpen(!open)}>
+          {open ? "close" : "open"}
+        </div>
+
+
+
+      </div> */}
     </>
   );
 }
