@@ -1,9 +1,12 @@
+import { ReactNode } from 'react';
 // Vaul
 import { Drawer } from 'vaul';
 // Components
 import Modal from './Modal';
 // Hooks
 import useIsMobile from '@/hooks/useIsMobile';
+// Next Intl
+import { useLocale } from 'next-intl';
 
 interface ResponsiveDialogDrawerProps {
     children: React.ReactNode;
@@ -17,6 +20,8 @@ interface ResponsiveDialogDrawerProps {
         className?: string;
         containerClassName?: string;
     };
+    title?: string;
+    headerContent?: ReactNode;
 }
 
 const ResponsiveDialogDrawer: React.FC<ResponsiveDialogDrawerProps> = ({
@@ -25,8 +30,12 @@ const ResponsiveDialogDrawer: React.FC<ResponsiveDialogDrawerProps> = ({
     setOpen,
     drawerProps,
     modalProps,
+    title,
+    headerContent
 }) => {
     const isMobile = useIsMobile();
+    const locale = useLocale();
+    const isEnglish = locale === 'en';
 
     const defaultModalClass = 'bg-background w-screen h-screen md:w-[550px] md:h-[550px]';
     const defaultModalContainerClass = '';
@@ -41,11 +50,15 @@ const ResponsiveDialogDrawer: React.FC<ResponsiveDialogDrawerProps> = ({
                     <Drawer.Portal>
                         <Drawer.Overlay className={`${drawerProps?.overlayClassName ?? defaultDrawerOverlayClass} `} />
                         <Drawer.Content className={`${drawerProps?.contentClassName ?? defaultDrawerContentClass} fixed bottom-0 left-0 right-0 outline-none`}>
-                            {/* <span onClick={() => setOpen(false)} className='absolute top-2 left-2 h-8 w-8 fcc cursor-pointer rounded-full hover:bg-tertiary-100 transition-colors duration-300'>
-                                <HiOutlineX size={18} className={`text-tertiary-900`} />
-                            </span> */}
-                            <div aria-hidden className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-5 cursor-move" />
-                            <Drawer.Title className="sr-only"></Drawer.Title>
+                            <div className='flex relative border-b h-10 border-tertiary-200'>
+                                <div className={`absolute top-1 ${isEnglish ? "left-4" : "right-4"}`}>
+                                    <Drawer.Title className={`${title ? '' : "sr-only"} text-sm`}>{title}</Drawer.Title>
+                                </div>
+                                <div aria-hidden className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-5 cursor-move" />
+                                <div className={`absolute ${isEnglish ? "right-4" : "left-4"}`}>
+                                    {headerContent}
+                                </div>
+                            </div>
                             <div className="w-full h-full">{children}</div>
                         </Drawer.Content>
                     </Drawer.Portal>
@@ -57,6 +70,8 @@ const ResponsiveDialogDrawer: React.FC<ResponsiveDialogDrawerProps> = ({
                     setIsOpen={setOpen}
                     className={modalProps?.className ?? defaultModalClass}
                     containerClassName={modalProps?.containerClassName ?? defaultModalContainerClass}
+                    title={title}
+                    headerContent={headerContent}
                 >
                     {children}
                 </Modal>

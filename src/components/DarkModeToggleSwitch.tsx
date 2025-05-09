@@ -1,9 +1,13 @@
 'use client';
 
 import React from 'react';
-import { HiOutlineMoon, HiOutlineSun } from 'react-icons/hi2';
+// Iconsax
+import { Moon, Sun1 } from 'iconsax-reactjs';
+// Next Themes
 import { useTheme } from 'next-themes';
+// Framer Motion
 import { motion, AnimatePresence } from 'framer-motion';
+// Next Intl
 import { useTranslations } from 'next-intl';
 
 type DarkModeToggleProps = {
@@ -54,8 +58,8 @@ const DarkModeToggleSwitch = ({
           transition={{ duration: 0.4 }}
         >
           {isDark
-            ? icons.dark ?? <HiOutlineMoon size={size} />
-            : icons.light ?? <HiOutlineSun size={size} className="text-orange-400" />}
+            ? icons.dark ?? <Moon size={size} />
+            : icons.light ?? <Sun1 size={size} className="text-orange-400" />}
         </motion.span>
       </AnimatePresence>
 

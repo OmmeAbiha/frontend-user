@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import { FC, ReactNode, useEffect, useRef } from 'react';
-// React icons
-import { HiOutlineX } from "react-icons/hi";
+// Iconsax
+import { CloseSquare } from 'iconsax-reactjs';
 // Framer Motion
 import { motion, AnimatePresence } from 'framer-motion';
 // Function
@@ -14,6 +14,8 @@ interface ModalProps {
     className?: string;
     containerClassName?: string;
     children: ReactNode;
+    title?: string;
+    headerContent?: ReactNode;
 }
 
 const backdropVariants = {
@@ -28,7 +30,7 @@ const modalVariants = {
     exit: { opacity: 0, scale: 0.9 }
 };
 
-const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, className = '', containerClassName = '', children }) => {
+const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, className = '', containerClassName = '', children, title, headerContent }) => {
     const modalContentRef = useRef<HTMLDivElement>(null);
     const locale = useLocale();
     const isEnglish = locale === 'en';
@@ -113,12 +115,26 @@ const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, className = '', containerCla
                         transition={{ duration: 0.2 }}
                         onClick={(e) => e.stopPropagation()}
                         className={`
-                            ${className} bg-background md:rounded-3xl w-[300px] mx-auto overflow-hidden relative p-5
+                            ${className} bg-background md:rounded-3xl w-[300px] mx-auto overflow-hidden relative
                         `}
                     >
+                        {
+                            title && (
+                                <div className='fcc p-3 border-b border-tertiary-100'>
+                                    <span className='font-bold text-tertiary-800'>{title}</span>
+                                </div>
+                            )
+                        }
                         <span onClick={closeModal} className={`absolute top-2 ${isEnglish ? "right-2" : "left-2"} h-8 w-8 fcc cursor-pointer rounded-full hover:bg-tertiary-100 transition-colors duration-300`}>
-                            <HiOutlineX size={18} className={`text-tertiary-900`} />
+                            <CloseSquare size={18} className={`text-tertiary-900`} />
                         </span>
+                        {
+                            headerContent && (
+                                <div className={`absolute top-2 ${isEnglish ? "left-2" : "right-2"}`}>
+                                    {headerContent}
+                                </div>
+                            )
+                        }
 
                         {children}
                     </motion.div>

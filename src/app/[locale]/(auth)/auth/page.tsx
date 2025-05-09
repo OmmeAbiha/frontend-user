@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 // i18n
 import { useRouter } from '@/i18n/routing';
@@ -10,15 +10,18 @@ import * as Yup from 'yup'
 // Component
 import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
-// React Icon
-import { FaArrowLeftLong } from "react-icons/fa6";
-import ResponsiveDialogDrawer from '@/src/components/ResponsiveDialogDrawer';
 import CountryPicker from './_components/CountryPicker';
+import ResponsiveDialogDrawer from '@/src/components/ResponsiveDialogDrawer';
+// Iconsax
+import { ArrowLeft, SearchNormal1 } from 'iconsax-reactjs';
+// Framer Motion
+import { motion } from 'framer-motion';
+// Static
+import { enums as countryData } from '@/static/countryData';
+
 
 
 const validationSchema = Yup.object({
-  countryCodes: Yup.string()
-    .required('کد الزامی است'),
   phoneNumber: Yup.string()
     .required('شماره موبایل الزامی است')
     .matches(/^[0-9]{10}$/, 'شماره موبایل باید ۱۰ رقم باشد'),
@@ -30,17 +33,19 @@ function Page() {
   const locale = useLocale();
   const isEnglish = locale === 'en';
   const [open, setOpen] = useState(false);
-  const [countrySelect, setCountrySelect] = useState(10);
+  const [countrySelect, setCountrySelect] = useState("IR-98");
+  const [isActiveSearch, setIsActiveSearch] = useState(false);
+  const selectedCountry = countryData.find((country) => country.id === countrySelect);
 
   const formik = useFormik({
     initialValues: {
-      countryCodes: '98',
       phoneNumber: '',
     },
     validationSchema,
     onSubmit: values => {
       const data = {
-        "phoneNumber": values.countryCodes + values.phoneNumber,
+        phoneNumber: `${selectedCountry?.dial_code || ''}${values.phoneNumber}`,
+        country: selectedCountry
       };
 
       console.log(data);
@@ -48,6 +53,10 @@ function Page() {
     }
   });
 
+  useEffect(() => {
+    if (open) return;
+    setIsActiveSearch(false);
+  }, [open])
 
   return (
     <>
@@ -70,27 +79,63 @@ function Page() {
 
             <div
               onClick={() => setOpen(true)}
-              className='cursor-pointer relative h-12 w-20 py-2 px-3 border border-border-2 rounded-lg caret-primary-medium focus:outline-none text-sm bg-background'>
+              className='hover:border-primary-main transition-colors duration-300 cursor-pointer relative h-12 flex items-center w-24 py-2 px-3 border border-border-2 rounded-lg caret-primary-medium focus:outline-none text-sm bg-background'>
               <span className={`absolute bg-background rounded-sm px-1 -top-2 ${isEnglish ? 'left-3' : 'right-3'} pointer-events-none transition-all duration-500 font-medium text-[11px] text-tertiary-600`}>
                 {t('codeLabel')}
+              </span>
+              <span>
+                {selectedCountry?.dial_code_without_plus}+
               </span>
             </div>
             <ResponsiveDialogDrawer
               open={open}
               setOpen={setOpen}
+              title={"انتخاب کشور"}
+              drawerProps={{
+                contentClassName: 'bg-background px-3 py-4 md:p-5 rounded-t-3xl h-[70%]'
+              }}
+              headerContent={
+                <div
+                  onClick={() => setIsActiveSearch(!isActiveSearch)}
+                  className={`fcc gap-1 text-xs h-8  cursor-pointer  transition-colors duration-300 
+                    ${isEnglish ? 'ml-2' : 'mr-2'}
+                    ${isActiveSearch ? 'text-secondary-400' : 'text-tertiary-900 hover:text-secondary-400'}
+                    `}
+                >
+                  <motion.div
+                    animate={
+                      isActiveSearch
+                        ? {
+                          rotate: [0, 10, -10, 5, -5, 0],
+                          scale: [1, 1.15, 1],
+                        }
+                        : {
+                          rotate: 0,
+                          scale: 1,
+                        }
+                    }
+                    transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  >
+                    <SearchNormal1 size="18" />
+                  </motion.div>
+                  <span>جستجو</span>
+                </div>
+              }
             >
               <CountryPicker
                 countrySelect={countrySelect}
-                setCountrySelect={setCountrySelect} />
+                setCountrySelect={setCountrySelect}
+                isActiveSearch={isActiveSearch}
+                setIsOpen={setOpen}
+              />
             </ResponsiveDialogDrawer>
-
           </div>
         </div>
         <Button
           title={t('continueButton')}
           type='submit'
           iconPosition='end'
-          icon={<FaArrowLeftLong className={`${isEnglish && "rotate-180"}`} />}
+          icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
         />
       </form>
 
@@ -107,16 +152,6 @@ function Page() {
           )
         })}
       </p>
-
-      {/* <div>
-
-        <div role='button' onClick={() => setOpen(!open)}>
-          {open ? "close" : "open"}
-        </div>
-
-
-
-      </div> */}
     </>
   );
 }

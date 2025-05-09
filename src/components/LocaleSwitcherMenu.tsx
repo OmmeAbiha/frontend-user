@@ -1,17 +1,21 @@
 'use client';
 
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { GrLanguage } from "react-icons/gr";
-import { motion } from 'framer-motion';
-import { useTransition } from 'react';
+import { useEffect, useRef, useState, useTransition } from 'react';
 import { useParams } from 'next/navigation';
+import { usePathname, useRouter, routing } from '@/i18n/routing';
+// Next Intl
 import { useLocale, useTranslations } from 'next-intl';
-import { usePathname, useRouter } from '@/i18n/routing';
-import { routing } from '@/i18n/routing';
+// Headlessui
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+// Framer Motion
+import { motion } from 'framer-motion';
+// clsx
 import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+// Components
 import LoadingBox from './LoadingBox';
-import { HiChevronDown } from 'react-icons/hi2';
+// Iconsax
+import { ArrowDown2, LanguageCircle } from 'iconsax-reactjs';
+
 
 export default function LocaleSwitcherMenu() {
     const t = useTranslations('LocaleSwitcher');
@@ -70,7 +74,7 @@ export default function LocaleSwitcherMenu() {
                     ) : (
                         <div className='flex w-full h-full gap-2 items-center justify-between'>
                             <div className='flex gap-2'>
-                                <GrLanguage size={20} className="text-primary-main text-base" />
+                                <LanguageCircle size={20} className="text-primary-main text-base" />
                                 <span>{t('label')}</span>
                             </div>
                             <motion.div
@@ -78,7 +82,7 @@ export default function LocaleSwitcherMenu() {
                                 transition={{ duration: 0.3 }}
                                 className=""
                             >
-                                <HiChevronDown size={18} />
+                                <ArrowDown2 size={18} />
                             </motion.div>
                         </div>
                     )
