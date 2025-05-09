@@ -1,7 +1,8 @@
 "use client"
 import React from 'react'
 // Assets
-import images_1 from "@/public/mock-images/72491200_9689394.jpg"
+import images_1 from "@/public/mock-images/38321956_8618374.jpg"
+
 
 import Logo from "@/public/common/logo/favicon-70x87.png"
 import Typography from "@/public/common/logo/Typography.png"
@@ -9,6 +10,7 @@ import { motion } from 'framer-motion';
 import LocaleSwitcherMenu from '@/src/components/LocaleSwitcherMenu';
 import DarkModeToggleSwitch from '@/src/components/DarkModeToggleSwitch';
 import Image from 'next/image';
+import AnimationLogin from './AnimationLogin'
 
 function BaseLayoutAuth({ children }: { children: React.ReactNode }) {
 
@@ -19,6 +21,7 @@ function BaseLayoutAuth({ children }: { children: React.ReactNode }) {
 
   return (
     <div className='flex gap-8 w-full h-screen p-8'>
+      <AnimationLogin />
       <div className='w-full lg:w-[40%] h-full fcc flex-col '>
         <motion.div
           className='w-[290px] sm:w-[320px] h-full fcc flex-col'
