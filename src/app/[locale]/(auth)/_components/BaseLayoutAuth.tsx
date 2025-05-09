@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 // Assets
-import images_1 from "@/public/mock-images/—Pngtree—ramadan elements png blue_6124415.png"
+import images_1 from "@/public/mock-images/72491200_9689394.jpg"
 
 import Logo from "@/public/common/logo/favicon-70x87.png"
 import Typography from "@/public/common/logo/Typography.png"
@@ -54,14 +54,14 @@ function BaseLayoutAuth({ children }: { children: React.ReactNode }) {
         </motion.div>
       </div>
       <div className='w-[60%] h-full hidden lg:flex'>
-        <div className='w-full h-full rounded-3xl overflow-hidden bg-primary-medium shadow-lg'>
+        <div className='w-full h-full rounded-3xl overflow-hidden fcc'>
           <Image
             unoptimized
             src={images_1}
             alt='login image'
-            className='object-cover'
-            width={1000}
-            height={1000}
+            className='object-contain'
+            width={900}
+            height={900}
           />
         </div>
       </div>
