@@ -21,7 +21,7 @@ function BaseLayoutAuth({ children }: { children: React.ReactNode }) {
     <div className='flex gap-8 w-full h-screen p-8'>
       <div className='w-full lg:w-[40%] h-full fcc flex-col '>
         <motion.div
-          className='w-[310px] h-full fcc flex-col'
+          className='w-[290px] sm:w-[320px] h-full fcc flex-col'
           initial="hidden"
           animate="visible"
           variants={animationVariants}

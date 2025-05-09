@@ -60,7 +60,7 @@ function Page() {
 
   return (
     <>
-      <form className='flex flex-col w-full max-w-[320px] gap-y-4' onSubmit={formik.handleSubmit}>
+      <form className='flex flex-col w-full gap-y-4' onSubmit={formik.handleSubmit}>
         <div className='flex flex-col w-full'>
           <p className='text-xs text-tertiary-600 mb-5'>{t('enterInfo')}</p>
           <div className={`flex ${isEnglish && "flex-row-reverse"}`}>
