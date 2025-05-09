@@ -83,14 +83,15 @@ function Page() {
               <span className={`absolute bg-background rounded-sm px-1 -top-2 ${isEnglish ? 'left-3' : 'right-3'} pointer-events-none transition-all duration-500 font-medium text-[11px] text-tertiary-600`}>
                 {t('codeLabel')}
               </span>
-              <span>
-                {selectedCountry?.dial_code_without_plus}+
-              </span>
+              <div className={`${isEnglish ? "flex flex-row-reverse" : "flex"} gap-1`}>
+                <span>{selectedCountry?.dial_code_without_plus}</span>
+                <span>+</span>
+              </div>
             </div>
             <ResponsiveDialogDrawer
               open={open}
               setOpen={setOpen}
-              title={"انتخاب کشور"}
+              title={t('countryPicker.title')}
               drawerProps={{
                 contentClassName: 'bg-background px-3 py-4 md:p-5 rounded-t-3xl h-[70%]'
               }}
@@ -118,7 +119,7 @@ function Page() {
                   >
                     <SearchNormal1 size="18" />
                   </motion.div>
-                  <span>جستجو</span>
+                  <span>{t('countryPicker.btnSearch')}</span>
                 </div>
               }
             >

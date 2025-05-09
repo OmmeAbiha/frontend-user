@@ -27,10 +27,15 @@
     "darkLabel": "الوضع الداكن"
   },
   "Auth": {
-    "enterInfo": "للدخول أو التسجيل، أدخل معلوماتك:",
-    "codeLabel": "رمز",
+    "enterInfo": "للدخول أو التسجيل، الرجاء إدخال معلوماتك:",
+    "codeLabel": "الرمز",
     "phoneLabel": "رقم الجوال",
-    "continueButton": "استمرار",
-    "termsText": "باستخدامك هذه الخدمة، فإنك توافق على <link>الشروط والأحكام</link>."
+    "continueButton": "متابعة",
+    "termsText": "باستخدامك لهذه الخدمة، فإنك تقبل <link>الشروط والأحكام</link>.",
+    "countryPicker": {
+      "title": "اختر الدولة",
+      "searchLabel": "أدخل اسم الدولة أو رمزها",
+      "btnSearch": "بحث"
+    }
   }
 }

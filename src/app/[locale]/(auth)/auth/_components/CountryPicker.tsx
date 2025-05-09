@@ -6,6 +6,8 @@ import { enums as countryData } from '@/static/countryData';
 import { motion } from 'framer-motion'
 // Components
 import TextBox from '@/src/components/inputs/TextBox';
+// Next Intl
+import { useLocale, useTranslations } from 'next-intl';
 
 interface CountryPickerProps {
     countrySelect: string;
@@ -16,15 +18,18 @@ interface CountryPickerProps {
 
 function CountryPicker({ countrySelect, setCountrySelect, isActiveSearch, setIsOpen }: CountryPickerProps) {
     const [query, setQuery] = useState('');
+    const t = useTranslations('Auth');
+    const locale = useLocale();
+    const isEnglish = locale === 'en';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value.toLowerCase());
     };
 
     const filteredCountries = countryData.filter((country) =>
-        country.name.toLowerCase().includes(query) || // Partial match for name
-        country.dial_code.startsWith(query) || // Exact match for dial_code
-        country.dial_code_without_plus.startsWith(query) // Exact match for dial_code_without_plus
+        country.name.toLowerCase().includes(query) ||
+        country.dial_code.startsWith(query) ||
+        country.dial_code_without_plus.startsWith(query)
     );
 
     return (
@@ -42,7 +47,7 @@ function CountryPicker({ countrySelect, setCountrySelect, isActiveSearch, setIsO
                 className='overflow-hidden w-full flex justify-between'
             >
                 <TextBox
-                    label="نام یا کد کشور را وارد کنید"
+                    label={t('countryPicker.searchLabel')}
                     value={query}
                     onChange={handleChange}
                     className="w-full min-h-12"
@@ -71,7 +76,10 @@ function CountryPicker({ countrySelect, setCountrySelect, isActiveSearch, setIsO
                                 <Image src={country.image} alt={country.name} width="20" height="20" />
                                 <span className='h-full flex items-center'>{country.name} ({country.code})</span>
                             </div>
-                            <span>{country.dial_code_without_plus} +</span>
+                            <div className={`${isEnglish ? "flex flex-row-reverse" : "flex"} gap-1`}>
+                                <span>{country.dial_code_without_plus}</span>
+                                <span>+</span>
+                            </div>
                         </li>
                     ))}
                 </motion.ul>

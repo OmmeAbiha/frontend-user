@@ -14,7 +14,7 @@ import clsx from 'clsx';
 // Components
 import LoadingBox from './LoadingBox';
 // Iconsax
-import { ArrowDown2, LanguageCircle } from 'iconsax-reactjs';
+import { ArrowDown2, LanguageSquare } from 'iconsax-reactjs';
 
 
 export default function LocaleSwitcherMenu() {
@@ -64,7 +64,7 @@ export default function LocaleSwitcherMenu() {
                 ref={menuButtonRef}
                 onClick={() => setIsOpen(!isOpen)}
                 className={clsx(
-                    'w-full flex h-12 items-center gap-2 rounded-lg border border-primary-main hover:bg-primary-light p-3 text-sm text-primary-main outline-none',
+                    'w-full flex h-12 items-center gap-2 rounded-lg border border-primary-main transition-colors duration-300 hover:bg-primary-light p-3 text-sm text-primary-main outline-none',
                     isPending && 'pointer-events-none'
                 )}
             >
@@ -74,15 +74,15 @@ export default function LocaleSwitcherMenu() {
                     ) : (
                         <div className='flex w-full h-full gap-2 items-center justify-between'>
                             <div className='flex gap-2'>
-                                <LanguageCircle size={20} className="text-primary-main text-base" />
+                                <LanguageSquare size={20} className="text-primary-main text-base" />
                                 <span>{t('label')}</span>
                             </div>
                             <motion.div
                                 animate={{ rotate: isOpen ? 180 : 0 }}
-                                transition={{ duration: 0.3 }}
+                                transition={{ duration: 0.2 }}
                                 className=""
                             >
-                                <ArrowDown2 size={18} />
+                                <ArrowDown2 size={16} />
                             </motion.div>
                         </div>
                     )

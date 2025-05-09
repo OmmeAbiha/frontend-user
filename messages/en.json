@@ -27,10 +27,15 @@
     "darkLabel": "Dark Mode"
   },
   "Auth": {
-    "enterInfo": "To sign in or register, enter your user information:",
-    "codeLabel": "Code",
-    "phoneLabel": "Phone Number",
-    "continueButton": "Continue",
-    "termsText": "Using this service means you accept the <link>terms and conditions</link>."
+  "enterInfo": "To sign in or register, please enter your user information:",
+  "codeLabel": "Code",
+  "phoneLabel": "Phone Number",
+  "continueButton": "Continue",
+  "termsText": "Using this service means accepting the <link>Terms and Conditions</link>.",
+  "countryPicker": {
+    "title": "Select Country",
+    "searchLabel": "Enter country name or code",
+    "btnSearch": "Search"
   }
+}
 }

@@ -37,7 +37,7 @@ const DarkModeToggleSwitch = ({
     setTheme(isDark ? 'light' : 'dark');
   };
 
-  const baseStyles = `flex items-center gap-2 cursor-pointer rounded-lg border px-3 h-12 transition-colors`;
+  const baseStyles = `flex items-center gap-2 cursor-pointer rounded-lg border px-3 h-12 transition-colors duration-300`;
   const dynamicStyles = isDark
     ? 'border-secondary-300 hover:bg-secondary-100 text-secondary-300'
     : 'border-primary-main hover:bg-primary-light text-primary-main';
@@ -59,7 +59,7 @@ const DarkModeToggleSwitch = ({
         >
           {isDark
             ? icons.dark ?? <Moon size={size} />
-            : icons.light ?? <Sun1 size={size} className="text-orange-400" />}
+            : icons.light ?? <Sun1 size={size} className="text-primary-main" />}
         </motion.span>
       </AnimatePresence>
 
