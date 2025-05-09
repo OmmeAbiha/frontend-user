@@ -28,7 +28,7 @@ function CountryPicker({ countrySelect, setCountrySelect, isActiveSearch, setIsO
     );
 
     return (
-        <div className='px-2'>
+        <div className='px-2 w-full h-full'>
             <motion.div
                 initial={false}
                 animate={{
@@ -50,11 +50,11 @@ function CountryPicker({ countrySelect, setCountrySelect, isActiveSearch, setIsO
                 />
             </motion.div>
 
-            <div className='w-full h-[501px] mt-2'>
+            <div className='w-full h-full mt-2'>
                 <motion.ul
                     layout
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                    className='w-full h-full overflow-y-scroll gap-y-1 flex flex-col p-[1px]'
+                    className='w-full h-full overflow-y-scroll gap-y-1 flex flex-col p-[1px] pb-16'
                 >
                     {filteredCountries.map((country) => (
                         <li

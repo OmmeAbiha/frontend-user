@@ -51,11 +51,11 @@ const ResponsiveDialogDrawer: React.FC<ResponsiveDialogDrawerProps> = ({
                         <Drawer.Overlay className={`${drawerProps?.overlayClassName ?? defaultDrawerOverlayClass} `} />
                         <Drawer.Content className={`${drawerProps?.contentClassName ?? defaultDrawerContentClass} fixed bottom-0 left-0 right-0 outline-none`}>
                             <div className='flex relative border-b h-10 border-tertiary-200'>
-                                <div className={`absolute top-1 ${isEnglish ? "left-4" : "right-4"}`}>
+                                <div className={`absolute top-1 ${isEnglish ? "left-2" : "right-2"}`}>
                                     <Drawer.Title className={`${title ? '' : "sr-only"} text-sm`}>{title}</Drawer.Title>
                                 </div>
                                 <div aria-hidden className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-5 cursor-move" />
-                                <div className={`absolute ${isEnglish ? "right-4" : "left-4"}`}>
+                                <div className={`absolute ${isEnglish ? "right-2" : "left-2"}`}>
                                     {headerContent}
                                 </div>
                             </div>
