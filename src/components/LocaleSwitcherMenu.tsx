@@ -92,15 +92,14 @@ export default function LocaleSwitcherMenu() {
             <MenuItems
                 anchor="bottom end"
                 style={{ width: menuWidth }}
-                className="absolute z-50 mt-1 gap-1 flex flex-col rounded-xl bg-background p-1 text-sm shadow-md outline-none"
+                className="absolute z-50 mt-1 gap-1 flex flex-col rounded-xl bg-background p-1 text-sm shadow-md outline-none border border-primary-main"
             >
                 {routing.locales.map((cur) => (
                     <MenuItem key={cur} as="button" onClick={() => handleChange(cur)}
                         className={({ active }) =>
                             clsx(
-                                'w-full px-3 h-10 rounded-md text-primary-dark',
-                                active ? 'bg-white/10' : '',
-                                cur === locale ? 'bg-primary-light' : ''
+                                'w-full px-3 h-10 rounded-lg text-primary-dark',
+                                cur === locale ? 'bg-primary-main text-white font-bold' : 'hover:bg-primary-veryLight'
                             )
                         }
                     >

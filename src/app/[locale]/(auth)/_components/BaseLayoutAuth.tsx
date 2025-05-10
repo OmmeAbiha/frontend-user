@@ -62,7 +62,7 @@ function BaseLayoutAuth({ children }: { children: React.ReactNode }) {
             unoptimized
             src={images_1}
             alt='login image'
-            className='object-contain'
+            className='object-contain w-full h-full aspect-square'
             width={900}
             height={900}
           />

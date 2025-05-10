@@ -11,7 +11,7 @@ function AnimationLogin() {
     return (
         <>
             <motion.div
-                className={`absolute top-[13%] ${!isEnglish ? 'right-[30%]' : 'left-[30%]'} grayscale hidden lg:block`}
+                className={`absolute w-[min(38vw,75vh)] h-[min(62vh,31vw)] top-[13%] ${!isEnglish ? 'right-[30%]' : 'left-[30%]'} grayscale hidden lg:block`}
                 initial={{ y: -10 }}
                 animate={{ y: 10 }}
                 transition={{
@@ -24,7 +24,7 @@ function AnimationLogin() {
                     unoptimized
                     src={images_3}
                     alt='login image'
-                    className='object-contain -rotate-12'
+                    className='object-contain -rotate-12 aspect-square w-[min(18vw,55vh)]'
                     width={260}
                     height={96}
                 />
