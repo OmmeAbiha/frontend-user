@@ -1,9 +1,12 @@
 import { ReactNode } from 'react';
+import { Metadata } from "next"
+// Fonts
 import iranYekanFontNum from "@/src/fonts/iranYekanFontNum";
 import iranYekanFont from "@/src/fonts/iranYekanFont";
+// Next Intl
 import { getMessages } from 'next-intl/server';
+// Wrapper Component
 import Providers from './Providers';
-import { Metadata } from "next"
 
 type Props = {
   children: ReactNode;
@@ -11,7 +14,6 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  // metadataBase: new URL(dafaultUrl),
   title: "Omme Abiha",
   description: "توضیحات اپلیکیشن",
   icons: {
@@ -23,8 +25,6 @@ export const metadata: Metadata = {
 export default async function BaseLayout({ children, locale }: Props) {
   const messages = await getMessages();
   const isEnglish = locale === 'en';
-  console.log(iranYekanFont.variable)
-
 
   return (
     <html

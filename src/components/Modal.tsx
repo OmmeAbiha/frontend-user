@@ -6,6 +6,7 @@ import { CloseSquare } from 'iconsax-reactjs';
 import { motion, AnimatePresence } from 'framer-motion';
 // Function
 import getScrollbarWidth from "@/functions/getScrollbarWidth";
+// Next Intl
 import { useLocale } from 'next-intl';
 
 interface ModalProps {
@@ -112,7 +113,7 @@ const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, className = '', containerCla
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.1 }}
                         onClick={(e) => e.stopPropagation()}
                         className={`
                             ${className} bg-background md:rounded-3xl w-[300px] mx-auto overflow-hidden relative

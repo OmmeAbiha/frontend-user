@@ -11,7 +11,7 @@ function AnimationLogin() {
     return (
         <>
             <motion.div
-                className={`absolute top-[15%] ${!isEnglish ? 'right-[30%]' : 'left-[30%]'} grayscale hidden lg:block`}
+                className={`absolute top-[13%] ${!isEnglish ? 'right-[30%]' : 'left-[30%]'} grayscale hidden lg:block`}
                 initial={{ y: -10 }}
                 animate={{ y: 10 }}
                 transition={{
@@ -50,12 +50,12 @@ function AnimationLogin() {
             </motion.div>
             <motion.div
                 className={`absolute top-[80%] ${!isEnglish ? 'right-[10%]' : 'left-[10%]'} grayscale hidden lg:block`}
-                initial={{ y: -10 }}
+                initial={{ y: -15 }}
                 animate={{ y: 10 }}
                 transition={{
                     repeat: Infinity,
                     repeatType: "reverse",
-                    duration: 5,
+                    duration: 4.5,
                 }}
             >
                 <Image
@@ -63,8 +63,8 @@ function AnimationLogin() {
                     src={images_3}
                     alt='login image'
                     className='object-contain -rotate-12'
-                    width={80}
-                    height={80}
+                    width={100}
+                    height={100}
                 />
             </motion.div>
             <motion.div
@@ -106,7 +106,7 @@ function AnimationLogin() {
                 />
             </motion.div>
             <motion.div
-                className={`absolute top-[60%] ${!isEnglish ? 'left-[55%]' : 'right-[55%]'} grayscale hidden lg:block`}
+                className={`absolute top-[60%] ${!isEnglish ? 'left-[54%]' : 'right-[54%]'} grayscale hidden lg:block`}
                 initial={{ y: -10 }}
                 animate={{ y: 10 }}
                 transition={{
