@@ -2,6 +2,7 @@
 
 import { OTPInput, SlotProps } from 'input-otp'
 import { clsx, type ClassValue } from 'clsx'
+import { useRef, useState } from 'react'
 
 export function cn(...inputs: ClassValue[]) {
     return clsx(inputs)
@@ -13,14 +14,21 @@ interface OtpInputProps {
 }
 
 export function OtpInput({ value, onChange }: OtpInputProps) {
+    const formRef = useRef<HTMLFormElement>(null)
+
     return (
         <OTPInput
+            ref={formRef}
             maxLength={6}
+            autoFocus
             pattern="\d"
+            onComplete={() => {
+                formRef.current?.blur();
+            }}
             value={value}
             onChange={(val) => {
                 if (/^\d*$/.test(val)) {
-                    onChange(val)
+                    onChange(val);
                 }
             }}
             containerClassName="group flex items-center has-[:disabled]:opacity-30"
@@ -50,7 +58,7 @@ export function OtpInput({ value, onChange }: OtpInputProps) {
                 </>
             )}
         />
-    )
+    );
 }
 
 function Slot(props: SlotProps) {
