@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 // i18n
 import { useRouter } from '@/i18n/routing';
@@ -19,8 +19,6 @@ import { motion } from 'framer-motion';
 // Static
 import { enums as countryData } from '@/static/countryData';
 
-
-
 const validationSchema = Yup.object({
   phoneNumber: Yup.string()
     .required('شماره موبایل الزامی است')
@@ -36,6 +34,7 @@ function Page() {
   const [countrySelect, setCountrySelect] = useState("IR-98");
   const [isActiveSearch, setIsActiveSearch] = useState(false);
   const selectedCountry = countryData.find((country) => country.id === countrySelect);
+  const phoneNumberInputRef = useRef<HTMLInputElement>(null);
 
   const formik = useFormik({
     initialValues: {
@@ -52,6 +51,10 @@ function Page() {
       router.push(`/auth/code`);
     }
   });
+
+  useEffect(() => {
+    phoneNumberInputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     if (open) return;
@@ -74,6 +77,7 @@ function Page() {
               value={formik.values.phoneNumber}
               error={formik.errors.phoneNumber}
               touched={formik.touched.phoneNumber}
+              ref={phoneNumberInputRef}
             />
             <span className='text-tertiary-400 flex pt-3.5 mx-1'>-</span>
 
