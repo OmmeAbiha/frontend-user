@@ -2,6 +2,7 @@
 
 import { OTPInput, SlotProps } from 'input-otp'
 import { clsx, type ClassValue } from 'clsx'
+import { useRef, useState } from 'react'
 
 export function cn(...inputs: ClassValue[]) {
     return clsx(inputs)
@@ -13,16 +14,28 @@ interface OtpInputProps {
 }
 
 export function OtpInput({ value, onChange }: OtpInputProps) {
+    const formRef = useRef<HTMLFormElement>(null)
+
     return (
         <OTPInput
+            ref={formRef}
             maxLength={6}
+            autoFocus
+            pattern="\d"
+            onComplete={() => {
+                formRef.current?.blur();
+            }}
             value={value}
-            onChange={onChange}
+            onChange={(val) => {
+                if (/^\d*$/.test(val)) {
+                    onChange(val);
+                }
+            }}
             containerClassName="group flex items-center has-[:disabled]:opacity-30"
             render={({ slots }) => (
                 <>
                     <div className="flex">
-                        {slots.slice(0, 3).map((slot, idx) => (
+                        {slots.slice(0, 2).map((slot, idx) => (
                             <Slot key={idx} {...slot} />
                         ))}
                     </div>
@@ -30,14 +43,22 @@ export function OtpInput({ value, onChange }: OtpInputProps) {
                     <FakeDash />
 
                     <div className="flex">
-                        {slots.slice(3).map((slot, idx) => (
+                        {slots.slice(2, 4).map((slot, idx) => (
+                            <Slot key={idx} {...slot} />
+                        ))}
+                    </div>
+
+                    <FakeDash />
+
+                    <div className="flex">
+                        {slots.slice(4, 6).map((slot, idx) => (
                             <Slot key={idx} {...slot} />
                         ))}
                     </div>
                 </>
             )}
         />
-    )
+    );
 }
 
 function Slot(props: SlotProps) {
@@ -46,12 +67,12 @@ function Slot(props: SlotProps) {
             className={cn(
                 'relative w-10 h-12 text-base',
                 'fcc',
-                'transition-all duration-100',
+                'transition-all duration-100 text-secondary-400',
                 'border-border-2 border-y border-r first:border-l first:rounded-l-md last:rounded-r-md',
                 'group-hover:border-accent-foreground/20 group-focus-within:border-accent-foreground/20',
                 'outline outline-0 outline-accent-foreground/20',
                 {
-                    'ring-1 ring-primary-main': props.isActive,
+                    'bg-primary-veryLight ': props.isActive,
                 }
             )}
         >
@@ -64,15 +85,15 @@ function Slot(props: SlotProps) {
 function FakeCaret() {
     return (
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center animate-caret-blink">
-            <div className="w-px h-8 bg-white" />
+            <div className="w-px h-8 bg-primary-veryLight" />
         </div>
     )
 }
 
 function FakeDash() {
     return (
-        <div className="flex w-10 justify-center items-center">
-            <div className="w-3 h-1 rounded-full bg-border" />
+        <div className="w-4 fcc">
+            <div className="w-2 h-[2px] rounded-full bg-primary-main" />
         </div>
     )
 }
