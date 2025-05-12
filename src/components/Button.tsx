@@ -61,7 +61,7 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {loading ? (
-        loadingIcon || <LoadingBox size={40} color={variant === 'outline' ? '#FDB612' : '#262626'} />
+        loadingIcon || <LoadingBox size={30} color={variant === 'outline' ? '#FDB612' : '#262626'} />
       ) : (
         <>
           {icon && iconPosition === 'start' && (
