@@ -2,7 +2,9 @@
 
 import { OTPInput, SlotProps } from 'input-otp'
 import { clsx, type ClassValue } from 'clsx'
-import { useRef, useState } from 'react'
+import { forwardRef } from 'react'
+import { useDispatch } from 'react-redux'
+import { OtpLengthIncrement, OtpLengthDecremental } from '@/store/features/authSlice'
 
 export function cn(...inputs: ClassValue[]) {
     return clsx(inputs)
@@ -11,55 +13,69 @@ export function cn(...inputs: ClassValue[]) {
 interface OtpInputProps {
     value: string
     onChange: (val: string) => void
+    onComplete?: () => void
 }
 
-export function OtpInput({ value, onChange }: OtpInputProps) {
-    const formRef = useRef<HTMLFormElement>(null)
+export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
+    ({ value, onChange, onComplete, ...rest }, ref) => {
+        const dispatch = useDispatch();
 
-    return (
-        <OTPInput
-            ref={formRef}
-            maxLength={6}
-            autoFocus
-            pattern="\d"
-            onComplete={() => {
-                formRef.current?.blur();
-            }}
-            value={value}
-            onChange={(val) => {
-                if (/^\d*$/.test(val)) {
-                    onChange(val);
+        const handleChange = (val: string) => {
+            if (/^\d*$/.test(val)) {
+                if (val.length > value.length) {
+                    dispatch(OtpLengthIncrement()); // Increment when length increases
+                } else if (val.length < value.length) {
+                    dispatch(OtpLengthDecremental()); // Decrement when length decreases
                 }
-            }}
-            containerClassName="group flex items-center has-[:disabled]:opacity-30"
-            render={({ slots }) => (
-                <>
-                    <div className="flex">
-                        {slots.slice(0, 2).map((slot, idx) => (
-                            <Slot key={idx} {...slot} />
-                        ))}
-                    </div>
 
-                    <FakeDash />
+                onChange(val);
 
-                    <div className="flex">
-                        {slots.slice(2, 4).map((slot, idx) => (
-                            <Slot key={idx} {...slot} />
-                        ))}
-                    </div>
+                if (val.length === 6 && onComplete) {
+                    onComplete();
+                }
+            }
+        };
 
-                    <FakeDash />
+        return (
+            <OTPInput
+                {...rest}
+                maxLength={6}
+                autoFocus
+                pattern="\d"
+                value={value}
+                onChange={handleChange}
+                containerClassName="group flex items-center has-[:disabled]:opacity-30"
+                render={({ slots }) => (
+                    <>
+                        <div className="flex">
+                            {slots.slice(0, 2).map((slot, idx) => (
+                                <Slot key={idx} {...slot} />
+                            ))}
+                        </div>
 
-                    <div className="flex">
-                        {slots.slice(4, 6).map((slot, idx) => (
-                            <Slot key={idx} {...slot} />
-                        ))}
-                    </div>
-                </>
-            )}
-        />
-    );
-}
+                        <FakeDash />
+
+                        <div className="flex">
+                            {slots.slice(2, 4).map((slot, idx) => (
+                                <Slot key={idx} {...slot} />
+                            ))}
+                        </div>
+
+                        <FakeDash />
+
+                        <div className="flex">
+                            {slots.slice(4, 6).map((slot, idx) => (
+                                <Slot key={idx} {...slot} />
+                            ))}
+                        </div>
+                    </>
+                )}
+            />
+        );
+    }
+);
+
+OtpInput.displayName = 'OtpInput';
 
 function Slot(props: SlotProps) {
     return (
@@ -72,7 +88,7 @@ function Slot(props: SlotProps) {
                 'group-hover:border-accent-foreground/20 group-focus-within:border-accent-foreground/20',
                 'outline outline-0 outline-accent-foreground/20',
                 {
-                    'bg-primary-veryLight ': props.isActive,
+                    'ring-1 ring-primary-main border-transparent bg-secondary-400/5': props.isActive,
                 }
             )}
         >
@@ -85,7 +101,7 @@ function Slot(props: SlotProps) {
 function FakeCaret() {
     return (
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center animate-caret-blink">
-            <div className="w-px h-8 bg-primary-veryLight" />
+            <div className="w-px h-8 bg-transparent" />
         </div>
     )
 }
