@@ -37,40 +37,42 @@ export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
         };
 
         return (
-            <OTPInput
-                {...rest}
-                maxLength={6}
-                autoFocus
-                pattern="\d"
-                value={value}
-                onChange={handleChange}
-                containerClassName="group flex items-center has-[:disabled]:opacity-30"
-                render={({ slots }) => (
-                    <>
-                        <div className="flex">
-                            {slots.slice(0, 2).map((slot, idx) => (
-                                <Slot key={idx} {...slot} />
-                            ))}
-                        </div>
+            <div dir='ltr' className='w-full'>
+                <OTPInput
+                    {...rest}
+                    maxLength={6}
+                    autoFocus
+                    pattern="\d"
+                    value={value}
+                    onChange={handleChange}
+                    containerClassName="group w-full fcc items-center has-[:disabled]:opacity-30"
+                    render={({ slots }) => (
+                        <>
+                            <div className="flex">
+                                {slots.slice(0, 2).map((slot, idx) => (
+                                    <Slot key={idx} {...slot} />
+                                ))}
+                            </div>
 
-                        <FakeDash />
+                            <FakeDash />
 
-                        <div className="flex">
-                            {slots.slice(2, 4).map((slot, idx) => (
-                                <Slot key={idx} {...slot} />
-                            ))}
-                        </div>
+                            <div className="flex">
+                                {slots.slice(2, 4).map((slot, idx) => (
+                                    <Slot key={idx} {...slot} />
+                                ))}
+                            </div>
 
-                        <FakeDash />
+                            <FakeDash />
 
-                        <div className="flex">
-                            {slots.slice(4, 6).map((slot, idx) => (
-                                <Slot key={idx} {...slot} />
-                            ))}
-                        </div>
-                    </>
-                )}
-            />
+                            <div className="flex">
+                                {slots.slice(4, 6).map((slot, idx) => (
+                                    <Slot key={idx} {...slot} />
+                                ))}
+                            </div>
+                        </>
+                    )}
+                />
+            </div>
         );
     }
 );
@@ -81,7 +83,7 @@ function Slot(props: SlotProps) {
     return (
         <div
             className={cn(
-                'relative w-10 h-12 text-base',
+                'relative w-12 h-12 text-base',
                 'fcc',
                 'transition-all duration-100 text-secondary-400',
                 'border-border-2 border-y border-r first:border-l first:rounded-l-md last:rounded-r-md',

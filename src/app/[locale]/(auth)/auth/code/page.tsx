@@ -16,8 +16,9 @@ function Page() {
   }
 
   return (
-    <div dir='ltr' className="w-full">
-      <form className='flex flex-col w-full gap-y-4' onSubmit={handleSubmit}>
+    <div className="w-full">
+      <p className='text-xs text-tertiary-600 mb-5'>{"کد فرستاده شده برای ( 0903*****21 ) را وارد کنید"}</p>
+      <form  className='flex flex-col w-full gap-y-4' onSubmit={handleSubmit}>
         <OtpInput
           value={otp}
           onChange={setOtp}
@@ -34,7 +35,6 @@ function Page() {
           icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
         />
       </form>
-      <p className="mt-4">OTP: {otp}</p>
     </div>
   )
 }
