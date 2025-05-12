@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
-import images_2 from "@/public/mock-images/w.png"
-import images_3 from "@/public/mock-images/h.png"
+import images_1 from "@/public/mock-images/lampWithClosedWings.png"
+import images_2 from "@/public/mock-images/lampWithOpenWings.png"
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 
@@ -22,7 +22,7 @@ function AnimationLogin() {
             >
                 <Image
                     unoptimized
-                    src={images_3}
+                    src={images_2}
                     alt='login image'
                     className='object-contain -rotate-12 aspect-square w-[min(18vw,55vh)]'
                     width={260}
@@ -41,7 +41,7 @@ function AnimationLogin() {
             >
                 <Image
                     unoptimized
-                    src={images_3}
+                    src={images_2}
                     alt='login image'
                     className='object-contain -rotate-12'
                     width={50}
@@ -60,7 +60,7 @@ function AnimationLogin() {
             >
                 <Image
                     unoptimized
-                    src={images_3}
+                    src={images_2}
                     alt='login image'
                     className='object-contain -rotate-12'
                     width={100}
@@ -79,7 +79,7 @@ function AnimationLogin() {
             >
                 <Image
                     unoptimized
-                    src={images_2}
+                    src={images_1}
                     alt='login image'
                     className='object-contain -rotate-12'
                     width={100}
@@ -98,7 +98,7 @@ function AnimationLogin() {
             >
                 <Image
                     unoptimized
-                    src={images_2}
+                    src={images_1}
                     alt='login image'
                     className='object-contain'
                     width={100}
@@ -117,7 +117,7 @@ function AnimationLogin() {
             >
                 <Image
                     unoptimized
-                    src={images_2}
+                    src={images_1}
                     alt='login image'
                     className='object-contain'
                     width={100}

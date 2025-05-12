@@ -80,7 +80,7 @@
   }
 
   [data-theme="dark"] {
-    --background: 210 9% 10%;        /* نزدیک به #1A1D20 */
+    --background: 213 25% 14%;        /* نزدیک به #1A1D20 */
     --foreground: 0 0% 100%;         /* سفید */
 
     --primary-veryLight: 42 100% 22%;  /* #4D3B00 */

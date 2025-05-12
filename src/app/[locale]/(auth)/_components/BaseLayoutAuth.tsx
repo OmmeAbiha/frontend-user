@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 // Assets
-import images_1 from "@/public/mock-images/38321956_8618374.jpg"
+import illuminatedThoughts from "@/public/mock-images/illuminatedThoughts.png"
 
 
 import Logo from "@/public/common/logo/favicon-70x87.png"
@@ -60,7 +60,7 @@ function BaseLayoutAuth({ children }: { children: React.ReactNode }) {
         <div className='w-full h-full rounded-3xl overflow-hidden fcc'>
           <Image
             unoptimized
-            src={images_1}
+            src={illuminatedThoughts}
             alt='login image'
             className='object-contain w-full h-full aspect-square'
             width={900}
