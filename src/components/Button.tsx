@@ -4,15 +4,15 @@ import LoadingBox from './LoadingBox';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: ReactNode;
-  title: string;
+  title?: string;
   loading?: boolean;
   loadingIcon?: ReactNode;
   fontSize?: string;
   fullWidth?: boolean;
   variant?: 'solid' | 'outline' | 'ghost';
-  iconPosition?: 'start' | 'end'; // 👈 جدید
+  iconPosition?: 'start' | 'end';
+  children?: ReactNode; // Add children prop
 }
-
 
 const Button: React.FC<ButtonProps> = ({
   icon,
@@ -25,7 +25,8 @@ const Button: React.FC<ButtonProps> = ({
   fullWidth = true,
   variant = 'solid',
   className,
-  iconPosition = 'start', // 👈 پیش‌فرض
+  iconPosition = 'start',
+  children, // Destructure children
   ...props
 }) => {
   const isDisabled = disabled || loading;
@@ -63,15 +64,17 @@ const Button: React.FC<ButtonProps> = ({
       {loading ? (
         loadingIcon || <LoadingBox size={30} color={variant === 'outline' ? '#FDB612' : '#262626'} />
       ) : (
-        <>
-          {icon && iconPosition === 'start' && (
-            <span className="flex-shrink-0">{icon}</span>
-          )}
-          <span>{title}</span>
-          {icon && iconPosition === 'end' && (
-            <span className="flex-shrink-0">{icon}</span>
-          )}
-        </>
+        children || (
+          <>
+            {icon && iconPosition === 'start' && (
+              <span className="flex-shrink-0">{icon}</span>
+            )}
+            <div>{title}</div>
+            {icon && iconPosition === 'end' && (
+              <span className="flex-shrink-0">{icon}</span>
+            )}
+          </>
+        )
       )}
     </button>
   );
