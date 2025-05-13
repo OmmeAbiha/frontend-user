@@ -27,15 +27,25 @@
     "darkLabel": "Dark Mode"
   },
   "Auth": {
-  "enterInfo": "To sign in or register, please enter your user information:",
-  "codeLabel": "Code",
-  "phoneLabel": "Phone Number",
-  "continueButton": "Continue",
-  "termsText": "Using this service means accepting the <link>Terms and Conditions</link>.",
-  "countryPicker": {
-    "title": "Select Country",
-    "searchLabel": "Enter country name or code",
-    "btnSearch": "Search"
+    "enterInfo": "To sign in or register, please enter your user information:",
+    "codeLabel": "Code",
+    "phoneLabel": "Phone Number",
+    "continueButton": "Continue",
+    "termsText": "Using this service means accepting the <link>Terms and Conditions</link>.",
+    "countryPicker": {
+      "title": "Select Country",
+      "searchLabel": "Enter country name or code",
+      "btnSearch": "Search"
+    },
+    "telegram": {
+      "enterInfo": "Enter the code sent to Telegram for {phoneNumber}.",
+      "OTPConfirmationBtn": "Confirm",
+      "getCodeViaSms": "Get login code via SMS"
+    },
+    "code": {
+      "enterInfo": "Enter the code sent to Telegram for {phoneNumber}.",
+      "OTPConfirmationBtn": "Confirm",
+      "getCodeViaTelegram": "Get login code via Telegram"
+    }
   }
-}
 }

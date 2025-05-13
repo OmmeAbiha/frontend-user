@@ -42,13 +42,19 @@ function Page() {
     },
     validationSchema,
     onSubmit: values => {
+      const fullPhoneNumber = `${selectedCountry?.dial_code || ''}${values.phoneNumber}`;
+
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('userPhone', fullPhoneNumber);
+      }
+
       const data = {
-        phoneNumber: `${selectedCountry?.dial_code || ''}${values.phoneNumber}`,
+        phoneNumber: fullPhoneNumber,
         country: selectedCountry
       };
 
       console.log(data);
-      router.push(`/auth/code`);
+      router.push(`/auth/telegram`);
     }
   });
 

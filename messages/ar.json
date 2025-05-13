@@ -36,6 +36,16 @@
       "title": "اختر الدولة",
       "searchLabel": "أدخل اسم الدولة أو رمزها",
       "btnSearch": "بحث"
+    },
+    "telegram": {
+      "enterInfo": "أدخل الرمز المرسل إلى التليجرام للرقم {phoneNumber}.",
+      "OTPConfirmationBtn": "تأكيد",
+      "getCodeViaSms": "رمز عبر الرسائل النصية"
+    },
+    "code": {
+      "enterInfo": "أدخل الرمز المرسل إلى التليجرام للرقم {phoneNumber}.",
+      "OTPConfirmationBtn": "تأكيد",
+      "getCodeViaTelegram": "الحصول على رمز الدخول عبر التليجرام"
     }
   }
 }

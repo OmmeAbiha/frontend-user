@@ -25,7 +25,7 @@ const withNextIntl = require("next-intl/plugin")();
 
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
 };
 
 export default withNextIntl(nextConfig);

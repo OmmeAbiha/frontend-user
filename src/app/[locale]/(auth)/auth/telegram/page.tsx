@@ -1,8 +1,11 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
-import { OtpInput } from '../_components/OtpInput';
+// Components
 import Button from '@/src/components/Button';
-import { ArrowLeft, ArrowLeft2, Send2, SmsTracking } from 'iconsax-reactjs';
+import { OtpInput } from '../_components/OtpInput';
+// Iconsax
+import { ArrowLeft, ArrowLeft2, SmsTracking } from 'iconsax-reactjs';
+// Next Intl
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/src/i18n/routing';
 import { clearOtpLength } from '@/store/features/authSlice'
@@ -14,7 +17,7 @@ function Page() {
   const OtpInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const dispatch = useDispatch();
-  const t = useTranslations('Auth.code');
+  const t = useTranslations('Auth.telegram');
   const locale = useLocale();
   const isEnglish = locale === 'en';
 
@@ -22,7 +25,7 @@ function Page() {
     dispatch(clearOtpLength());
     const savedPhone = sessionStorage.getItem('userPhone')?.replaceAll("+98", "0");
     if (savedPhone) {
-      setPhoneNumber(savedPhone); // Set phoneNumber from sessionStorage
+      setPhoneNumber(savedPhone);
     }
   }, []);
 
@@ -33,7 +36,7 @@ function Page() {
   return (
     <div className="w-full">
       <p className='text-xs text-tertiary-600 mb-5'>
-        {t('enterInfo', { phoneNumber })} {/* Pass phoneNumber to the translation */}
+        {t('enterInfo', { phoneNumber })}
       </p>
       <form className='flex flex-col w-full gap-y-4' onSubmit={handleSubmit}>
         <OtpInput
@@ -55,11 +58,11 @@ function Page() {
       <Button
         variant='outline'
         className='mt-10'
-        onClick={() => router.push("/auth/telegram")}
+        onClick={() => router.push("/auth/code")}
       >
         <div className='w-full h-full flex items-center justify-between'>
-          <Send2 size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
-          <span className='text-sm'>{t('getCodeViaTelegram')}</span>
+          <SmsTracking size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
+          <span className='text-sm'>{t('getCodeViaSms')}</span>
           <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
         </div>
       </Button>

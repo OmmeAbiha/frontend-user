@@ -8,6 +8,7 @@ export const routing = defineRouting({
     '/': '/',
     '/auth': '/auth',
     '/auth/code': '/auth/code',
+    '/auth/telegram': '/auth/telegram',
     // '/pathnames': {
     //   fa: '/pathnames',
     //   en: '/pathnames',

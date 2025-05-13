@@ -36,6 +36,16 @@
       "title": "انتخاب کشور",
       "searchLabel": "نام یا کد کشور را وارد کنید",
       "btnSearch": "جستجو"
+    },
+    "telegram": {
+      "enterInfo": "کد فرستاده شده در تلگرام برای {phoneNumber} را وارد کنید.",
+      "OTPConfirmationBtn": "تایید",
+      "getCodeViaSms": "دریافت کد ورود از طریق پیامک"
+    },
+    "code": {
+      "enterInfo": "کد فرستاده شده در تلگرام برای {phoneNumber} را وارد کنید.",
+      "OTPConfirmationBtn": "تایید",
+      "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
     }
   }
 }

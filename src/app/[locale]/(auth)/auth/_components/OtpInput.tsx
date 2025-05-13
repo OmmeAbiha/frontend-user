@@ -45,6 +45,7 @@ export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
             <div dir='ltr' className='w-full'>
                 <OTPInput
                     {...rest}
+                    ref={ref}
                     maxLength={6}
                     autoFocus
                     pattern="\d"
