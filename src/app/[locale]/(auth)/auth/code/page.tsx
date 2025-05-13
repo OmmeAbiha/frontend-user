@@ -1,10 +1,14 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
+// Components
 import { OtpInput } from '../_components/OtpInput';
 import Button from '@/src/components/Button';
-import { ArrowLeft, ArrowLeft2, Send2, SmsTracking } from 'iconsax-reactjs';
+// Iconsax
+import { ArrowLeft, ArrowLeft2, Send2 } from 'iconsax-reactjs';
+// Next Intl
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/src/i18n/routing';
+// Redux
 import { clearOtpLength } from '@/store/features/authSlice'
 import { useDispatch } from 'react-redux';
 
@@ -22,7 +26,7 @@ function Page() {
     dispatch(clearOtpLength());
     const savedPhone = sessionStorage.getItem('userPhone')?.replaceAll("+98", "0");
     if (savedPhone) {
-      setPhoneNumber(savedPhone); // Set phoneNumber from sessionStorage
+      setPhoneNumber(savedPhone);
     }
   }, []);
 

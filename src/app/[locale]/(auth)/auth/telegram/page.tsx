@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowLeft2, SmsTracking } from 'iconsax-reactjs';
 // Next Intl
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/src/i18n/routing';
+// Redux
 import { clearOtpLength } from '@/store/features/authSlice'
 import { useDispatch } from 'react-redux';
 

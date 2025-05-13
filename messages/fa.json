@@ -43,7 +43,7 @@
       "getCodeViaSms": "دریافت کد ورود از طریق پیامک"
     },
     "code": {
-      "enterInfo": "کد فرستاده شده در تلگرام برای {phoneNumber} را وارد کنید.",
+      "enterInfo": "کد فرستاده شده برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
       "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
     }

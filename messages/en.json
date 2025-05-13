@@ -43,7 +43,7 @@
       "getCodeViaSms": "Get login code via SMS"
     },
     "code": {
-      "enterInfo": "Enter the code sent to Telegram for {phoneNumber}.",
+      "enterInfo": "Enter the code sent to {phoneNumber}.",
       "OTPConfirmationBtn": "Confirm",
       "getCodeViaTelegram": "Get login code via Telegram"
     }
