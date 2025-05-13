@@ -15,10 +15,14 @@ export const authSlice = createSlice({
         OtpLengthDecremental: (state) => {
             state.OtpLength -= 1;
         },
+
+        clearOtpLength: (state) => {
+            state.OtpLength = 0;
+        },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { OtpLengthIncrement, OtpLengthDecremental } = authSlice.actions;
+export const { OtpLengthIncrement, OtpLengthDecremental, clearOtpLength } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { OtpInput } from './_components/OtpInput';
 import Button from '@/src/components/Button';
 import { ArrowLeft, ArrowLeft2, ArrowRight2, SmsTracking } from 'iconsax-reactjs';
@@ -14,6 +14,8 @@ function Page() {
   const handleSubmit = () => {
     console.log("handleSubmit")
   }
+
+  
 
   return (
     <div className="w-full">

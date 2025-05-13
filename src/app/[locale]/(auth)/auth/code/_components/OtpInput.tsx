@@ -4,7 +4,7 @@ import { OTPInput, SlotProps } from 'input-otp'
 import { clsx, type ClassValue } from 'clsx'
 import { forwardRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { OtpLengthIncrement, OtpLengthDecremental } from '@/store/features/authSlice'
+import { OtpLengthIncrement, OtpLengthDecremental, clearOtpLength } from '@/store/features/authSlice'
 
 export function cn(...inputs: ClassValue[]) {
     return clsx(inputs)
@@ -22,15 +22,20 @@ export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
 
         const handleChange = (val: string) => {
             if (/^\d*$/.test(val)) {
-                if (val.length > value.length) {
-                    dispatch(OtpLengthIncrement()); // Increment when length increases
-                } else if (val.length < value.length) {
-                    dispatch(OtpLengthDecremental()); // Decrement when length decreases
+                const newLength = val.length;
+                const currentLength = value.length;
+
+                if (newLength === 0) {
+                    dispatch(clearOtpLength()); 
+                } else if (newLength > currentLength) {
+                    dispatch(OtpLengthIncrement());
+                } else if (newLength < currentLength) {
+                    dispatch(OtpLengthDecremental());
                 }
 
                 onChange(val);
 
-                if (val.length === 6 && onComplete) {
+                if (newLength === 6 && onComplete) {
                     onComplete();
                 }
             }
@@ -90,7 +95,7 @@ function Slot(props: SlotProps) {
                 'group-hover:border-accent-foreground/20 group-focus-within:border-accent-foreground/20',
                 'outline outline-0 outline-accent-foreground/20',
                 {
-                    'ring-1 ring-primary-main border-transparent bg-secondary-400/5': props.isActive,
+                    'ring-1 ring-primary-main border-transparent bg-primary-veryLight/20': props.isActive,
                 }
             )}
         >

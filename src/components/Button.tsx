@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
   const isDisabled = disabled || loading;
 
   const baseClasses =
-    'transition-colors duration-300 rounded-lg h-11 px-4 fcc gap-x-2 font-bold overflow-hidden';
+    'transition-colors duration-300 rounded-lg h-12 px-4 fcc gap-x-2 font-bold overflow-hidden';
 
   const variantBaseClasses = {
     solid: 'bg-primary-main text-white',
