@@ -46,6 +46,14 @@
       "enterInfo": "أدخل الرمز المرسل إلى الرقم {phoneNumber}.",
       "OTPConfirmationBtn": "تأكيد",
       "getCodeViaTelegram": "الحصول على رمز الدخول عبر التليجرام"
+    },
+    "password": {
+      "enterPassword": "أدخل كلمة المرور الخاصة بك",
+      "forgotPassword": "هل نسيت كلمة المرور؟",
+      "continue": "متابعة",
+      "telegramOption": "الحصول على رمز الدخول عبر التليجرام",
+      "smsOption": "الحصول على رمز الدخول عبر الرسائل النصية",
+      "passwordLabel": "كلمة المرور"
     }
   }
 }

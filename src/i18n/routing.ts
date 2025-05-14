@@ -10,6 +10,7 @@ export const routing = defineRouting({
     '/auth/code': '/auth/code',
     '/auth/telegram': '/auth/telegram',
     '/auth/change-password': '/auth/change-password',
+    '/auth/mobile-verification': '/auth/mobile-verification',
     // '/pathnames': {
     //   fa: '/pathnames',
     //   en: '/pathnames',

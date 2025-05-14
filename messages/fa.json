@@ -46,6 +46,14 @@
       "enterInfo": "کد فرستاده شده برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
       "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
+    },
+    "password": {
+      "enterPassword": "رمزعبور خود را وارد کنید",
+      "passwordLabel": "رمز عبور",
+      "forgotPassword": "رمزعبور را فراموش کردید؟",
+      "continue": "ادامه",
+      "telegramOption": "دریافت کد ورود از طریق تلگرام",
+      "smsOption": "دریافت کد ورود از طریق پیامک"
     }
   }
 }
