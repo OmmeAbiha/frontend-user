@@ -69,7 +69,7 @@ function Page() {
                             />
                         </div>
                     </div>
-                    <CustomLink className='text-xs text-secondary-400' href="/auth/mobile-verification">{t('forgotPassword')}</CustomLink>
+                    <CustomLink className='text-xs text-secondary-400' href="/auth/forget-password/mobile-verification">{t('forgotPassword')}</CustomLink>
                 </div>
                 <Button
                     title={t('continue')}
@@ -83,7 +83,7 @@ function Page() {
                     variant='outline'
                     onClick={() => router.push("/auth/telegram")}
                 >
-                    <div className='w-full h-full flex items-center justify-between'>
+                    <div className='w-full h-full flex font-normal items-center justify-between'>
                         <Send2 size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
                         <span className='text-sm'>{t('telegramOption')}</span>
                         <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
@@ -93,7 +93,7 @@ function Page() {
                     variant='outline'
                     onClick={() => router.push("/auth/code")}
                 >
-                    <div className='w-full h-full flex items-center justify-between'>
+                    <div className='w-full h-full font-normal flex items-center justify-between'>
                         <SmsTracking size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
                         <span className='text-sm'>{t('smsOption')}</span>
                         <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />

@@ -1,22 +1,19 @@
 import { createNavigation } from 'next-intl/navigation';
 import { defineRouting } from 'next-intl/routing';
+import { staticRoutes } from './staticRoutes';
+
+
+const pathnames = Object.fromEntries(staticRoutes.map((route) => [route, route]));
 
 export const routing = defineRouting({
   locales: ['fa', 'en', 'ar'],
   defaultLocale: 'fa',
-  pathnames: {
-    '/': '/',
-    '/auth': '/auth',
-    '/auth/code': '/auth/code',
-    '/auth/telegram': '/auth/telegram',
-    '/auth/change-password': '/auth/change-password',
-    '/auth/mobile-verification': '/auth/mobile-verification',
-    // '/pathnames': {
-    //   fa: '/pathnames',
-    //   en: '/pathnames',
-    //   ar: '/pathnames'
-    // }
-  }
+  pathnames,
+  // '/pathnames': {
+  //   fa: '/pathnames',
+  //   en: '/pathnames',
+  //   ar: '/pathnames'
+  // }
 });
 
 export type Pathnames = keyof typeof routing.pathnames;
