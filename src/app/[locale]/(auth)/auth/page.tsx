@@ -19,11 +19,6 @@ import { motion } from 'framer-motion';
 // Static
 import { enums as countryData } from '@/static/countryData';
 
-const validationSchema = Yup.object({
-  phoneNumber: Yup.string()
-    .required('شماره موبایل الزامی است')
-    .matches(/^[0-9]{10}$/, 'شماره موبایل باید ۱۰ رقم باشد'),
-});
 
 function Page() {
   const router = useRouter();
@@ -35,6 +30,12 @@ function Page() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
   const selectedCountry = countryData.find((country) => country.id === countrySelect);
   const phoneNumberInputRef = useRef<HTMLInputElement>(null);
+
+  const validationSchema = Yup.object({
+    phoneNumber: Yup.string()
+      .required(t('validation.required')) // Use dynamic translation
+      .matches(/^[0-9]{10}$/, t('validation.invalidPhone')), // Use dynamic translation
+  });
 
   const formik = useFormik({
     initialValues: {

@@ -62,6 +62,11 @@
         "specialChar": "Password must contain at least one special character",
         "validChars": "Password must only include English letters and valid characters"
       }
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidPhone": "Phone number must be 10 digits",
+      "invalidCode": "The entered code is invalid"
     }
   }
 }
