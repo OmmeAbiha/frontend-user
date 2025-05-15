@@ -40,7 +40,7 @@ function Page() {
             };
 
             console.log(data);
-            router.push(`/auth/change-password`);
+            // router.push(`/auth/change-password`);
         }
     });
 
