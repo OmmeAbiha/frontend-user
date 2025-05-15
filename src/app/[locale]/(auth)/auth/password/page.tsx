@@ -10,23 +10,23 @@ import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
 import { ArrowLeft, ArrowLeft2, Send2, SmsTracking } from 'iconsax-reactjs';
 
-const validationSchema = Yup.object({
-    password: Yup.string()
-        .required('رمز عبور الزامی است')
-        .min(8, 'رمز عبور باید حداقل ۸ کاراکتر باشد')
-        .matches(/[A-Z]/, 'رمز عبور باید حداقل یک حرف بزرگ داشته باشد')
-        .matches(/[a-z]/, 'رمز عبور باید حداقل یک حرف کوچک داشته باشد')
-        .matches(/[0-9]/, 'رمز عبور باید حداقل یک عدد داشته باشد')
-        .matches(/[@$!%*?&#]/, 'رمز عبور باید حداقل یک کاراکتر خاص داشته باشد')
-        .matches(/^[A-Za-z0-9@$!%*?&#]+$/, 'رمز عبور فقط باید شامل حروف انگلیسی و کاراکترهای مجاز باشد'),
-});
-
 function Page() {
     const router = useRouter();
     const locale = useLocale();
     const isEnglish = locale === 'en';
     const t = useTranslations('Auth.password');
     const passwordInputRef = useRef<HTMLInputElement>(null);
+
+    const validationSchema = Yup.object({
+        password: Yup.string()
+            .required(t('validation.required'))
+            .min(8, t('validation.minLength'))
+            .matches(/[A-Z]/, t('validation.uppercase'))
+            .matches(/[a-z]/, t('validation.lowercase'))
+            .matches(/[0-9]/, t('validation.number'))
+            .matches(/[@$!%*?&#]/, t('validation.specialChar'))
+            .matches(/^[A-Za-z0-9@$!%*?&#]+$/, t('validation.validChars')),
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -53,7 +53,6 @@ function Page() {
             <form className='flex flex-col w-full gap-y-4' onSubmit={formik.handleSubmit}>
                 <div className='w-full'>
                     <div className='flex flex-col w-full'>
-                        <p className='text-xs text-tertiary-600 mb-5'>{t('enterPassword')}</p>
                         <div className={`flex ${isEnglish && "flex-row-reverse"}`}>
                             <TextBox
                                 id='password'

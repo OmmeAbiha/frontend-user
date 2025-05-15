@@ -48,12 +48,20 @@
       "getCodeViaTelegram": "Get login code via Telegram"
     },
     "password": {
-      "enterPassword": "Enter your password",
       "forgotPassword": "Forgot your password?",
       "continue": "Continue",
       "telegramOption": "Get login code via Telegram",
       "smsOption": "Get login code via SMS",
-      "passwordLabel": "Password"
+      "passwordLabel": "Password",
+      "validation": {
+        "required": "Password is required",
+        "minLength": "Password must be at least 8 characters long",
+        "uppercase": "Password must contain at least one uppercase letter",
+        "lowercase": "Password must contain at least one lowercase letter",
+        "number": "Password must contain at least one number",
+        "specialChar": "Password must contain at least one special character",
+        "validChars": "Password must only include English letters and valid characters"
+      }
     }
   }
 }

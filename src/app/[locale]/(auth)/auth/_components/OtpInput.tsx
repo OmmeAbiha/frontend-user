@@ -2,7 +2,7 @@
 
 import { OTPInput, SlotProps } from 'input-otp'
 import { clsx, type ClassValue } from 'clsx'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { OtpLengthIncrement, OtpLengthDecremental, clearOtpLength } from '@/store/features/authSlice'
 
@@ -53,29 +53,14 @@ export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
                     onChange={handleChange}
                     containerClassName="group w-full fcc items-center has-[:disabled]:opacity-30"
                     render={({ slots }) => (
-                        <>
-                            <div className="flex">
-                                {slots.slice(0, 2).map((slot, idx) => (
+                        <div className="flex">
+                            {slots.map((slot, idx) => (
+                                <React.Fragment key={idx}>
                                     <Slot key={idx} {...slot} />
-                                ))}
-                            </div>
-
-                            <FakeDash />
-
-                            <div className="flex">
-                                {slots.slice(2, 4).map((slot, idx) => (
-                                    <Slot key={idx} {...slot} />
-                                ))}
-                            </div>
-
-                            <FakeDash />
-
-                            <div className="flex">
-                                {slots.slice(4, 6).map((slot, idx) => (
-                                    <Slot key={idx} {...slot} />
-                                ))}
-                            </div>
-                        </>
+                                    {idx < slots.length - 1 && <FakeDash />}
+                                </React.Fragment>
+                            ))}
+                        </div>
                     )}
                 />
             </div>
@@ -89,10 +74,11 @@ function Slot(props: SlotProps) {
     return (
         <div
             className={cn(
-                'relative w-12 h-12 text-base',
+                'relative sm:w-11 sm:h-11 w-10 h-10 text-base',
                 'fcc',
                 'transition-all duration-100 text-secondary-400',
-                'border-border-2 border-y border-r first:border-l first:rounded-l-md last:rounded-r-md',
+                // 'border-border-2 border-y border-r first:border-l first:rounded-l-md last:rounded-r-md',
+                'border border-border-2 rounded-md',
                 'group-hover:border-accent-foreground/20 group-focus-within:border-accent-foreground/20',
                 'outline outline-0 outline-accent-foreground/20',
                 {
@@ -116,8 +102,8 @@ function FakeCaret() {
 
 function FakeDash() {
     return (
-        <div className="w-4 fcc">
-            <div className="w-2 h-[2px] rounded-full bg-primary-main" />
+        <div className="w-[10px] sm:w-[11px] fcc">
+            <div className="w-[5px] h-[2px] rounded-full bg-primary-main" />
         </div>
     )
 }

@@ -58,10 +58,10 @@ function Page() {
       </form>
       <Button
         variant='outline'
-        className='mt-10'
+        className='mt-8'
         onClick={() => router.push("/auth/code")}
       >
-        <div className='w-full h-full flex items-center justify-between'>
+        <div className='w-full h-full flex font-normal items-center justify-between'>
           <SmsTracking size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
           <span className='text-sm'>{t('getCodeViaSms')}</span>
           <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />

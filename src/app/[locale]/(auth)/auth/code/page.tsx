@@ -58,10 +58,10 @@ function Page() {
       </form>
       <Button
         variant='outline'
-        className='mt-10'
+        className='mt-8'
         onClick={() => router.push("/auth/telegram")}
       >
-        <div className='w-full h-full flex items-center justify-between'>
+        <div className='w-full h-full font-normal flex items-center justify-between'>
           <Send2 size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
           <span className='text-sm'>{t('getCodeViaTelegram')}</span>
           <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
